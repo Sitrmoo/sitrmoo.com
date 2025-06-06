@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流月</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icon.svg">
+
+    <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
+
+    <style>
+    .container {
+    width: 90%; /* 移动端默认占满90%宽度 */
+    max-width: 800px; /* PC端最大宽度限制为800px */
+    margin: 0 auto; /* 水平居中 */
+    }
+    </style>
+</head>
+<body class="container">
+    <header><a href="https://gbhf0020.pages.dev" target="_blank"><img src="/images/logo.svg" style="height: 120px; "></a></header>
+
+    <nav>
+        <ul class="horizontal-list">
+            <li><a href="/works">作品</a></li>
+            <li><a href="https://gbhf0020.pages.dev" target="_blank">博客</a></li>
+            <li><a href="/contact">联系</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>嗨，我是流月👋</h1>
+        <p>&emsp;&emsp;欢迎来到我的个人网站！我会在这里分享一些项目。</p>   
+        <p>&emsp;&emsp;现在，我还在学习一些技术，所以什么都还没做出来。不过，总有一天，<a href="/works/index.html">作品页</a>会满满当当的。我正在学习前端，期待自己的作品。</p>
+        <p>&emsp;&emsp;我相信，每一个精益求精的作品总是有人喜欢的。🤗🤗🤗</p>
+    </main>
+    <br><br>
+    <address>
+        <a href="https://github.com/gbhf0020" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a>
+        <a href="https://www.x.com/gbhf0020" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+        <a href="mailto:gbhf0020@gmail.com"><i class="fa-solid fa-envelope fa-xl"></i></a>
+    </address>
+
+    <footer>
+        <p>&copy <span id="year"></span> 流月</p>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</html>
