@@ -2,7 +2,7 @@ body {
     color: #000;
     font-size: 20px;
 }
-    .container {
+.container {
     max-width: 800px; /* PC端最大宽度限制为800px */
     margin: 0 auto; /* 水平居中 */
     background-color: #FAFAF7;
@@ -74,4 +74,9 @@ footer {
     padding: 20px;      /* 设置内边距 */
     border-top: 1px solid #ccc; /* 添加顶部边框 */
     color: #666
+}
+
+img {
+    max-width: 100%; /* 图片不超出容器 */
+    height: auto; /* 保持比例 */
 }
