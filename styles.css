@@ -28,6 +28,10 @@ nav {
     text-decoration: none;  /* 移除链接下划线 */
     color: #313542;           /* 设置文字颜色 */
     font-size: 30px;      /* 可选：设置文字大小 */
+    transition: color 0.3s; /* 平滑过渡效果 */
+}
+.horizontal-list a:hover {
+    color: #666; /* 悬停颜色 */
 }
 .horizontal-list div {
     color: #000;           /* 设置文字颜色 */
