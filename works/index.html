@@ -8,15 +8,11 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../images/icon.svg">
 
-    <style>
-    .container {
-    width: 90%; /* 移动端默认占满90%宽度 */
-    max-width: 800px; /* PC端最大宽度限制为800px */
-    margin: 0 auto; /* 水平居中 */
-    }
+    <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
+
     </style>
 </head>
-<body>
+<body class="container">
      <nav>
         <ul class="horizontal-list">
             <li class="nav-word"><a href="/"><b>流月</b></a></li>
@@ -26,6 +22,17 @@
         </ul>
     </nav>
 
-    <h1 style="text-align: center;"><b>暂未完成，敬请期待</b></h1>
+    <br><br>
+    <address>
+        <a href="https://github.com/gbhf0020" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a>
+        <a href="https://www.x.com/gbhf0020" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+        <a href="mailto:gbhf0020@gmail.com"><i class="fa-solid fa-envelope fa-xl"></i></a>
+    </address>
+    <br>
+
+    <footer>
+        <p>&copy <span id="year"></span> 流月</p>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
