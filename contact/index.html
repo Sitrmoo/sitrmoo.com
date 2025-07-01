@@ -4,41 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系 | 流月</title>
-
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/mobile.css" media="only screen and (max-width: 768px)">
-    <link rel="icon" href="../images/icon.svg">
-
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/mobile.css">
+    <link rel="stylesheet" href="/styles/transition.css">
+    <link rel="icon" href="/images/icon.svg">
     <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
-
 </head>
-<body class="container">
+<body  class="container">
+    <!-- 加载导航栏 -->
+    <div id="header"></div>
 
-    <nav>
-        <ul class="horizontal-list">
-            <li class="nav-word"><a href="/"><img src="/images/logo.svg" style="width: 200px;"></a></li>
-            <li class="nav-word"><a href="/works/index.html">作品</a></li>
-            <li class="nav-word"><a href="https://blog.786692.xyz" target="_blank">博客</a></li>
-            <li class="nav-word"><div>联系</div></li>
-        </ul>
-    </nav>
+    <!-- 主内容区 -->
+    <div id="content" class="fade-in-text"></div>
 
-    <main>
-        <h1>📮 联系流月</h1>
+    <!-- 加载社交账号 -->
+    <div id="social"></div>
 
-        <p>&emsp;&emsp;谢谢你愿意花时间走进这个小小的数字角落～无论是想聊聊学习生活、分享有趣的想法，还是有什么想一起尝试的事，我都很乐意倾听呀～</p>
+    <!-- 加载页脚 -->
+    <div id="footer"></div>
 
-        <p>&emsp;&emsp;你可以通过以下方式联系我：</p>
-        <ul style="list-style: none;">
-            <li><i class="fa-brands fa-qq"></i> QQ：<a href="http://wpa.qq.com/msgrd?v=3&uin=3041495206&site=qq&menu=yes" target=_blank>3041495206</a></li>
-            <li><i class="fa-brands fa-facebook-messenger"></i> Messenger:<a href="https://www.messenger.com/t/156025504001094" target="_blank">Liu Yue</a></li>
-            <li><i class="fa-solid fa-envelope"></i> 邮箱：<a href="mailto:gbhf0020@gmail.com">gbhf0020@gmail.com</a></li>
-        </ul>
-    </main>
+    <script>
+        // 动态加载外部HTML文件
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading component:', error);
+                });
+        }
 
-    <footer>
-        <p>&copy <span id="year"></span> 流月</p>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        // 加载各个组件
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('header', '../components/header.html');
+            loadComponent('content', '../content/contact.html');
+            loadComponent('social', '../components/social.html');
+            loadComponent('footer', '../components/footer.html');
+        });
+    </script>
 </body>
 </html>

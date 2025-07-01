@@ -46,13 +46,13 @@ a {
     color: #000;         /* 设置链接颜色 */
     text-decoration-color: #666; /* 设置链接下划线颜色 */
 }
-/* 为导航链接添加灰色方框 */
+/* 为导航链接添加方框 */
 main a {
     text-decoration: none;
     color: #313542;
     font-size: 20px;
     padding: 1px 4px;          /* 内边距 */
-    background-color: #dadacf;  /* 浅灰色背景 */
+    background-color: #dadacf;  /* 浅色背景 */
     border-radius: 4px;         /* 圆角 */
     display: inline-block;      /* 确保 padding 生效 */
     background: linear-gradient(to bottom, #f5f5f5, #e5e5e5);   
@@ -67,7 +67,9 @@ main a:hover {
 
 address {
     gap: 25px;
-    display: flex;       /* 启用 Flexbox */}
+    display: flex;       /* 启用 Flexbox */
+    margin-bottom: 20px; /* 增加下边距，分隔与footer的线 */
+}
 
 footer {
     text-align: center; /* 居中对齐页脚内容 */
@@ -80,3 +82,26 @@ img {
     max-width: 100%; /* 图片不超出容器 */
     height: auto; /* 保持比例 */
 }
+
+/* Logo 样式 */
+.logo a,
+.logo a:hover,
+.logo a:visited {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    color: inherit !important;
+}
+
+.logo img {
+    display: block;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto;
+}
+
+.pre-mobile { display: none; }
+.pre-pc { display: block; }

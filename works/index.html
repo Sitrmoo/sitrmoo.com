@@ -4,72 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作品 | 流月</title>
-
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/mobile.css" media="only screen and (max-width: 768px)">
-    <link rel="stylesheet" href="../styles/projext-cart.css">
-    <link rel="icon" href="../images/icon.svg">
-
+    <link rel="stylesheet" href="/styles/styles.css ">
+    <link rel="stylesheet" href="/styles/mobile.css">
+    <link rel="stylesheet" href="/styles/transition.css">
+    <link rel="stylesheet" href="/styles/projext-card.css">
+    <link rel="icon" href="/images/icon.svg">
     <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
-
 </head>
-<body class="container">
-     <nav>
-        <ul class="horizontal-list">
-            <li class="nav-word"><a href="/"><img src="/images/logo.svg" style="width: 200px;"></a></li>
-            <li class="nav-word"><div>作品</div></li>
-            <li class="nav-word"><a href="https://blog.786692.xyz" target="_blank">博客</a></li>
-            <li class="nav-word"><a href="/contact">联系</a></li>
-        </ul>
-    </nav>
+<body  class="container">
+    <!-- 加载导航栏 -->
+    <div id="header"></div>
 
-    <main>
-    <h1>🌟 我的作品</h1>
-    <p>&emsp;&emsp;这里有一些我的作品，虽然数量不多，但每个项目都倾注了我的热情和努力。希望你能在这里找到灵感或乐趣！</p>
-
-    <section class="projects-grid">
-
-    <article class="project-card">
-    <div class="project-content">
-      <h3>二十二年后的山茶</h3>
-      <p class="project-desc">一部推理小说</p>
-      <div class="project-tags">
-        <span>文学作品</span>
-      </div>
-      <a href="#" class="project-link"
-      onclick="alert('作品暂未完成，请耐心等待。'); return false;  //完成后删除此行弹窗
-      ">立即阅读</a>
-      <a href="/works/camellia.html" target="_blank" class="project-link"; >查看详情</a>
-      </div>
-    </article>
-
-    <article class="project-card">
-    <div class="project-content">
-      <h3>计算器</h3>
-      <p class="project-desc">一个网页计算器</p>
-      <div class="project-tags">
-        <span>HTML</span>
-      </div>
-      <div class="project-actions" style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="https://misc.786692.xyz/calculator" target="_blank" class="project-link">立即使用</a>
-      </div>
+    <!-- 主内容区 -->
+    <div id="content" class="fade-in-text">
+      <div id="works-main"></div>
+      <section class="projects-grid">
+        <div class="loading">加载中...</div>
+      </section>
     </div>
-    </article>
+
+    <!-- 加载社交账号 -->
+    <div id="social"></div>
+
+    <!-- 加载页脚 -->
+    <div id="footer"></div>
+
+    <script>
+        // 动态加载外部HTML文件
+        function loadComponent(id, url) { 
+            fetch(url)
+               .then(response => response.text())
+               .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+               .catch(error => {
+                    console.error('Error loading component:', error);
+                });
+        }
+
+        // 加载各个组件
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('header', '../components/header.html');
+            loadComponent('social', '../components/social.html');
+            loadComponent('footer', '../components/footer.html');
+        });
+    </script>
+
     
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('.projects-grid');
+        const loading = container.querySelector('.loading');
+        fetch('/data/projects.json')
+          .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+          })
+          .then(data => {
+            if (!data || !Array.isArray(data.projects)) throw new Error('JSON格式不正确');
+            container.innerHTML = '';
+            data.projects.forEach(project => {
+              const card = document.createElement('article');
+              card.className = 'project-card';
+              card.innerHTML = `
+                <div class="project-content">
+                  <h3 class="project-title">${project.title}</h3>
+                  <p class="project-desc">${project.description}</p>
+                  <div class="project-tags">
+                    ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+                  </div>
+                  ${
+                    Array.isArray(project.buttons)
+                      ? project.buttons.map(btn => `<a class="project-link" href="${btn.link}" target="_blank">${btn.text}</a>`).join('')
+                      : `<a class="project-link" href="${project.link}">${project.buttonText || ''}</a>`
+                  }
+                </div>
+              `;
+              container.appendChild(card);
+            });
+          })
+          .catch(error => {
+            loading.textContent = `加载失败: ${error.message}`;
+            loading.style.color = 'red';
+          });
+      });
+    </script>
 
-    </main>
-
-    <br><br>
-    <address>
-        <a href="https://github.com/gbhf0020" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a>
-        <a href="https://www.x.com/gbhf0020" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
-        <a href="mailto:gbhf0020@gmail.com"><i class="fa-solid fa-envelope fa-xl"></i></a>
-    </address>
-    <br>
-
-    <footer>
-        <p>&copy <span id="year"></span> 流月</p>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script>
+        // 加载 works.html 到正文部分
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../content/works.html')
+              .then(response => response.text())
+              .then(data => {
+                document.getElementById('works-main').innerHTML = data;
+              })
+              .catch(error => {
+                document.getElementById('works-main').innerHTML = '<p style="color:red;">正文加载失败</p>';
+              });
+        });
+    </script>
 </body>
 </html>

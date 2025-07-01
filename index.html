@@ -3,50 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="ccu7VDGoSJOeLXH6-6aqlbFHbKgpdx5bDuO5tbJRoFs" />
     <title>流月</title>
-
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/mobile.css" media="only screen and (max-width: 768px)">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="stylesheet" href="styles/transition.css">
     <link rel="icon" href="images/icon.svg">
-
     <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
-
 </head>
-<body class="container">
-    <header style="margin-top: 40px;"><a href="/"><img src="/images/logo.svg" style="height: 120px; "></a></header>
+<body  class="container">
 
-    <nav>
-        <ul class="horizontal-list">
-            <li><a href="/works">作品</a></li>
-            <li><a href="https://blog.786692.xyz" target="_blank">博客</a></li>
-            <li><a href="/contact">联系</a></li>
-        </ul>
-    </nav>
+    <!-- 加载导航栏 -->
+    <div id="header"></div>
 
-    <main>
-        <h1>嗨，我是流月👋</h1>
-        一个喜欢记录和探索的中学生，习惯用文字梳理想法，也爱尝试把脑海里的奇思妙想变成现实～
-        <h2>🌱 关于这里</h2>
-        <p>&emsp;&emsp;欢迎闯进我的小世界！这里会存下我学习时的思考碎片、突然冒出来的创意点子，还有那些没来得及说出口的小心得。虽然现在页面还有点空旷，但每次写下新内容，都像在给空白的本子添上一笔 —— 我正慢慢让它变得丰满起来～</p>   
-        <h2>🚧 当前状态</h2>
-        <p>&emsp;&emsp;每天都在啃书本里的新知识，偶尔也会鼓捣些小创作：可能是写一段小故事，设计一张简单的图文，或者研究某个感兴趣的小课题；</p>
-        <p>&emsp;&emsp;也在试着用不同的方式表达想法，比如用表格整理思路，用手绘记录灵感，慢慢摸索属于自己的表达方式；就算每天只完成一点点，也觉得离想做的事更近了一步～</p>
-        <h2>✨ 我的信念</h2>
-        <p>&emsp;&emsp;觉得 “坚持” 是件很酷的事 —— 不管是解一道难题，还是写完一篇日记，每一次认真对待的小尝试，最后都会变成成长路上的印记。也许现在做的事还很简单，但慢慢积累，总会有不一样的发现～</p>
-        <h2>🤝 期待相遇</h2>
-        <p>&emsp;&emsp;如果你也喜欢分享生活里的小想法，或者有感兴趣的话题，欢迎来<a href="contact/index.html">联系页</a>聊聊呀！不用懂什么专业知识，只要带着好奇和热情，我们就可以一起聊聊学习、聊聊梦想，让这个小空间变得更热闹～</p>
-    </main>
+    <!-- 主内容区 -->
+    <div id="content" class="fade-in-text"></div>
+
+    <!-- 加载社交账号 -->
+    <div id="social"></div>
+
+    <!-- 加载页脚 -->
+    <div id="footer"></div>
     
-    <address style="margin-top: 40px;">
-        <a href="https://github.com/gbhf0020" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a>
-        <a href="https://www.x.com/gbhf0020" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a>
-        <a href="mailto:gbhf0020@gmail.com"><i class="fa-solid fa-envelope fa-xl"></i></a>
-    </address>
-    <br>
+    <script>
+        // 动态加载外部HTML文件
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading component:', error);
+                });
+        }
 
-    <footer>
-        <p>&copy <span id="year"></span> 流月</p>
-    </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        // 加载各个组件
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('header', '../components/header.html');
+            loadComponent('content', '../content/home.html');
+            loadComponent('social', '../components/social.html');
+            loadComponent('footer', '../components/footer.html');
+
+            // 监听footer加载完成后设置年份
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                    // footer加载后设置年份
+                    const yearSpan = document.getElementById('year');
+                    if (yearSpan) {
+                        yearSpan.textContent = new Date().getFullYear();
+                    }
+                });
+        });
+    </script>
+</body>
 </html>
