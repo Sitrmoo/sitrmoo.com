@@ -49,6 +49,18 @@
             loadComponent('header', '../components/header.html');
             loadComponent('social', '../components/social.html');
             loadComponent('footer', '../components/footer.html');
+
+         // 监听footer加载完成后设置年份
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                    // footer加载后设置年份
+                    const yearSpan = document.getElementById('year');
+                    if (yearSpan) {
+                        yearSpan.textContent = new Date().getFullYear();
+                    }
+                });
         });
     </script>
 
