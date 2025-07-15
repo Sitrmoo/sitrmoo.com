@@ -5,7 +5,7 @@
       "description": "一部推理小说",
       "tags": ["文学作品"],
       "buttons": [
-
+        
         { "text": "查看详情", "link": "/works/camellia.html" }
       ]
     }

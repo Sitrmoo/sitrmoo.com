@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="流月">
+    <meta name="description" content="流月的个人网站。">
+    <title>二十二年后的山茶 | 流月</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/mobile.css">
+    <link rel="stylesheet" href="/styles/transition.css">
+    <link rel="icon" href="/images/icon.svg">
+    <script src="https://kit.fontawesome.com/7bc800185a.js" crossorigin="anonymous"></script>
+</head>
+<body  class="container">
+
+    <!-- 加载导航栏 -->
+    <div id="header"></div>
+
+    <!-- 主内容区 -->
+    <div id="content" class="fade-in-text"></div>
+
+    <!-- 加载社交账号 -->
+    <div id="social"></div>
+
+    <!-- 加载页脚 -->
+    <div id="footer"></div>
+    
+    <script>
+        // 动态加载外部HTML文件
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading component:', error);
+                });
+        }
+
+        // 加载各个组件
+        document.addEventListener('DOMContentLoaded', function() {
+            loadComponent('header', '../components/header.html');
+            loadComponent('content', '../content/camellia.html');
+            loadComponent('social', '../components/social.html');
+            loadComponent('footer', '../components/footer.html');
+
+            // 监听footer加载完成后设置年份
+            fetch('../components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                    // footer加载后设置年份
+                    const yearSpan = document.getElementById('year');
+                    if (yearSpan) {
+                        yearSpan.textContent = new Date().getFullYear();
+                    }
+                });
+        });
+    </script>
+    <script>
+        function not_finish() {
+            alert("作品暂未完成，敬请期待。");
+        }
+    </script>
+</body>
+</html>
