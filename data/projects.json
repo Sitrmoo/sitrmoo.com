@@ -9,14 +9,5 @@
         { "text": "查看详情", "link": "/works/camellia.html" }
       ]
     }
-,
-    {
-    "title": "计算器",
-    "description": "一个网页版计算器",
-    "tags": ["工具"],
-    "buttons": [
-      { "text": "立即使用", "link": "https://misc.786692.xyz/calculator" }
-    ]
-  }
   ]
 }
