@@ -5,7 +5,6 @@ body {
 .container {
     max-width: 800px; /* PC端最大宽度限制为800px */
     margin: 0 auto; /* 水平居中 */
-    background-color: #FAFAF7;
     }
 
 nav {
@@ -51,7 +50,7 @@ main a {
     text-decoration: none;
     color: #313542;
     font-size: 20px;
-    padding: 1px 4px;          /* 内边距 */
+    padding: 0.2px 2px;          /* 内边距 */
     background-color: #dadacf;  /* 浅色背景 */
     border-radius: 4px;         /* 圆角 */
     display: inline-block;      /* 确保 padding 生效 */
