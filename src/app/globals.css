@@ -1,0 +1,708 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 色彩变量定义 */
+:root {
+  --primary: #165DFF;
+  --primary-light: rgba(22, 93, 255, 0.1);
+  --primary-dark: #0E4CD1;
+  --secondary: #FF7D00;
+  --secondary-light: rgba(255, 125, 0, 0.1);
+  --secondary-dark: #E06C00;
+  
+  --bg: #F5F7FA;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border: #E5E7EB;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 全局背景样式 */
+.global-background {
+  background-color: var(--bg);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 粒子效果容器 */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 确保粒子不影响交互 */
+  z-index: 0;
+}
+
+/* 内容容器样式 */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1; /* 确保内容在粒子上方 */
+}
+
+/* 主内容区域样式 */
+.main-content {
+  padding: 60px 0;
+}
+
+/* 链接样式 */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+
+/* 按钮基础样式 */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+  color: white;
+}
+
+/* ============== 导航栏全局样式 ============== */
+/* 导航栏容器：固定顶部，宽屏居中，窄屏全屏，添加圆角 */
+.navbar {
+  width: 100%;
+  background-color: #F5F7FA; /* 中性背景色，与全局背景一致 */
+  border-bottom: 1px solid #E5E7EB; /* 淡灰分割线，区分导航与内容 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 轻微阴影，提升层次感 */
+  position: sticky; /* 滚动时固定在顶部，方便导航 */
+  top: 40px;
+  z-index: 100; /* 高于页面内容（如粒子效果、首页内容），避免被覆盖 */
+  border-radius: 0 0 12px 12px; /* 底部左右圆角，值可根据喜好调整 */
+  overflow: clip; /* 确保内部内容也遵循圆角，不影响页面滚动 */
+}
+
+/* 导航栏内容容器：与首页 max-width 一致，居中对齐 */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* 标题居左，菜单居右 */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px; /* 上下内边距16px，左右20px（与首页一致） */
+}
+
+/* 导航链接样式 */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+}
+
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+/* Logo样式 */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 移动端导航样式 */
+.mobile-nav {
+  display: none;
+  padding: 16px 20px;
+}
+
+.mobile-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* 当汉堡菜单处于打开状态时添加 open 类（组件会控制） */
+.menu-button.open {
+  outline: none;
+}
+.menu-button.open .menu-icon {
+  background: transparent;
+}
+.menu-button.open .menu-icon::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-button.open .menu-icon::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* 合并后的移动端菜单项样式（用于下拉式 .mobile-menu） */
+.mobile-menu li {
+  margin: 0;
+}
+.mobile-menu a {
+  color: var(--text-primary);
+  font-weight: 500;
+  display: block;
+  padding: 10px 16px;
+}
+.mobile-menu a.active {
+  color: var(--primary);
+}
+
+/* ============== 移动端响应式适配（768px以下） ============== */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* 隐藏桌面端菜单 */
+  .navbar-menu {
+    display: none;
+  }
+}
+
+
+
+/* 移动端 logo 与菜单小尺寸调整 */
+.mobile-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 确保页面容器在移动端不受过高的左右内边距影响 */
+@media (max-width: 480px) {
+  .page-container { padding: 0 12px; }
+}
+
+/* 桌面端显示设置 */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* ============== 页脚全局样式 ============== */
+/* 页脚容器：与导航栏宽度对齐，底部留空 */
+.footer {
+  width: 100%;
+  background-color: var(--bg); /* 与全局背景一致，避免突兀 */
+  border-top: 1px solid var(--border); /* 淡灰分割线，区分主内容与页脚 */
+  padding: 24px 0; /* 上下内边距，垂直方向留白 */
+  margin-top: auto; /* 配合根布局 flex，始终贴在页面底部 */
+}
+
+/* 页脚内容容器：与首页/导航栏 max-width 一致，居中对齐 */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* 左右内边距，与导航栏呼应 */
+  display: flex; /* 横向布局，实现左右对齐 */
+  justify-content: space-between; /* 关键：版权居左，社交居右 */
+  align-items: center; /* 垂直居中，避免上下错位 */
+  gap: 20px; /* 移动端堆叠时的间距 */
+}
+
+/* 版权栏样式：居左 */
+.footer-copyright {
+  color: var(--text-secondary); /* 次要文本色，不抢主内容视觉 */
+  font-size: 0.9rem; /* 小号字体，符合页脚层级 */
+  line-height: 1.4;
+}
+
+/* 社交链接容器：居右 */
+.footer-social {
+  display: flex;
+  gap: 16px; /* 社交图标之间的间距 */
+  list-style: none; /* 移除列表默认圆点 */
+}
+
+/* 社交链接样式： hover 有过渡效果 */
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* 固定尺寸，图标更规整 */
+  height: 36px;
+  border-radius: 50%; /* 圆形背景，增强设计感 */
+  background-color: var(--primary-light); /* 主色调淡背景 */
+  color: var(--primary); /* 主色调图标 */
+  transition: all 0.2s ease; /*  hover 过渡，更丝滑 */
+}
+
+/* 社交链接 hover 效果：加深背景+变色 */
+.footer-social-link:hover {
+  background-color: var(--primary);
+  color: white; /* hover 时文字变白，对比更明显 */
+  transform: translateY(-2px); /* 轻微上浮，增强交互感 */
+}
+
+/* ============== 移动端响应式适配（768px以下） ============== */
+@media (max-width: 768px) {
+  /* 移动端改为上下堆叠，避免横向拥挤 */
+  .footer-container {
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    text-align: center; /* 文字居中，更符合移动端阅读习惯 */
+  }
+
+  /* 移动端社交链接容器：居中排列 */
+  .footer-social {
+    margin-top: 12px; /* 与版权栏拉开距离 */
+  }
+}
+
+/* 作品页面补充样式 */
+
+/* 作品页面样式 */
+.works-page {
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 页面标题 */
+.page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 分类筛选 */
+.categories-filter {
+  margin-bottom: 40px;
+}
+
+.categories-filter ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: white;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.category-item:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.category-item.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* 作品网格 */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* 作品卡片 */
+.work-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+/* 作品信息 */
+.work-info {
+  padding: 24px;
+}
+
+.work-title {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
+}
+
+.work-card:hover .work-title {
+  color: var(--primary);
+}
+
+.work-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* 作品标签容器 */
+.work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* 作品标签样式 */
+.work-category {
+  font-size: 0.8rem;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* 作品按钮样式 */
+.work-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* 无作品时显示 */
+.no-works {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .work-info {
+    padding: 20px;
+  }
+}
+
+/*============================= 博客页面补充样式 =============================*/
+/* 博客卡片布局样式 */
+.blog-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* 卡片网格布局 */
+.blog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* 博客卡片样式 */
+.blog-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 卡片头部 */
+.blog-card-header {
+  padding: 20px 20px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.blog-card-title a {
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.blog-card-title a:hover {
+  color: var(--primary);
+}
+
+.blog-card-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* 卡片描述 */
+.blog-card-description {
+  padding: 16px 20px;
+  flex-grow: 1;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* 卡片底部 */
+.blog-card-footer {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .blog-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .blog-page {
+    padding: 40px 16px;
+  }
+  
+  .blog-card-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* 联系页面样式 */
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.contact-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 30px;
+}
+
+.contact-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* 联系页面样式 - 优化移动端适配 */
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.contact-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 30px;
+}
+
+.contact-content p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* 联系列表样式 */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap; /* 防止内容换行 */
+  gap: 12px; /* 元素间统一间距 */
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+  flex-shrink: 0; /* 图标不收缩 */
+}
+
+.contact-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  flex-shrink: 0; /* 标签不收缩 */
+  min-width: 70px; /* 确保标签有足够宽度 */
+}
+
+.contact-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  overflow: hidden; /* 处理长链接 */
+  text-overflow: ellipsis; /* 超长时显示省略号 */
+  white-space: nowrap;
+  flex-grow: 1; /* 链接占剩余空间 */
+}
+
+.contact-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* 移动端优化 (关键修改) */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 40px 16px;
+  }
+  
+  .contact-content {
+    padding: 20px 16px;
+  }
+  
+  .contact-item {
+    /* 保持flex布局，确保在同一行 */
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    gap: 10px; /* 减小间距 */
+    flex-wrap: nowrap; /* 禁止换行 */
+  }
+  
+  .contact-label {
+    min-width: 60px; /* 移动端标签宽度稍小 */
+    font-size: 0.9rem;
+  }
+  
+  .contact-link {
+    font-size: 0.9rem;
+    /* 确保链接不会挤压其他元素 */
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+  .contact-label {
+    min-width: 50px;
+    font-size: 0.85rem;
+  }
+  
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
