@@ -217,36 +217,12 @@ a:hover {
   }
 }
 
-/* 移动端导航细化样式 */
+/* 移动端导航细化样式（简化：只显示内联字符图标，无动画） */
 .menu-icon {
-  display: inline-block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-primary);
-  position: relative;
-}
-.menu-icon::before,
-.menu-icon::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 22px;
-  height: 2px;
-  background: var(--text-primary);
-  transition: transform 0.25s ease, opacity 0.2s ease;
-}
-.menu-icon::before { top: -7px; }
-.menu-icon::after { top: 7px; }
-
-/* 当按钮处于打开状态时，通过父按钮的 class 控制（JS 已渲染），这里提供通用选择器 */
-.menu-button[aria-label*="关闭"] .menu-icon {
-  background: transparent;
-}
-.menu-button[aria-label*="关闭"] .menu-icon::before {
-  transform: translateY(7px) rotate(45deg);
-}
-.menu-button[aria-label*="关闭"] .menu-icon::after {
-  transform: translateY(-7px) rotate(-45deg);
+  display: block;
+  font-size: 1.5rem; /* 对应按钮的文字图标 ☰ */
+  line-height: 1;
+  color: var(--text-primary);
 }
 
 .mobile-menu {
@@ -256,12 +232,7 @@ a:hover {
   background: white;
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  animation: slideDown 180ms ease-out;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: translateY(0); }
+  /* no animation */
 }
 
 /* 移动端 logo 与菜单小尺寸调整 */
@@ -742,4 +713,175 @@ a:hover {
     width: 20px;
     height: 20px;
   }
+}
+
+/* ============== 新的覆盖式移动导航样式 ============== */
+
+/* 移动端导航容器 */
+.mobile-nav {
+  position: relative;
+  display: none;
+  padding: 16px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 覆盖式菜单背景 */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-menu-overlay.overlay-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 侧边菜单 */
+.mobile-menu-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-sidebar.sidebar-open {
+  right: 0;
+}
+
+/* 移动端菜单头部 */
+.mobile-menu-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 关闭按钮 */
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.close-button:hover {
+  color: var(--text-primary);
+}
+
+.close-icon {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* 移动端菜单链接 */
+.mobile-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.mobile-menu-links li {
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu-links li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: 16px 24px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.mobile-menu-link:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.mobile-menu-link.active {
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border-left-color: var(--primary);
+}
+
+/* 汉堡菜单按钮样式 - 简化版 */
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-primary);
+  z-index: 1000;
+  position: relative;
+}
+
+.menu-icon {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* 响应式显示设置 */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none;
+  }
+}
+
+/* 确保页面内容在菜单打开时不会滚动 */
+body.menu-open {
+  overflow: hidden;
 }
