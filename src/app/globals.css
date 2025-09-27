@@ -6,21 +6,17 @@
 }
 
 /* 色彩变量定义 */
-:root {
-  --primary: #165DFF;
-  --primary-light: rgba(22, 93, 255, 0.1);
-  --primary-dark: #0E4CD1;
-  --secondary: #FF7D00;
-  --secondary-light: rgba(255, 125, 0, 0.1);
-  --secondary-dark: #E06C00;
-  
-  --bg: #F5F7FA;
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --border: #E5E7EB;
-  
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+:root{
+  --primary: #2BAF90;
+  --primary-light: rgba(43,175,144,0.08);
+  --primary-dark: #218C6D;
+  --secondary: #FFD166;
+  --bg: #F4FBF9;
+  --card-bg: #FFFFFF;
+  --text-primary: #0F1724;
+  --text-secondary: #55646B;
+  --border: #E6F3EE;
+  --shadow-sm: 0 6px 18px rgba(4,17,12,0.04);
 }
 
 /* 全局背景样式 */

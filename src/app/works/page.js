@@ -83,7 +83,7 @@ export default function WorksPage() {
     <div className="works-page">
       <div className="page-header">
         <h1>我的作品</h1>
-        <p>展示我在不同领域的项目经验和技术实践</p>
+        <p>这里有一些我的作品，虽然数量不多，但每个项目都倾注了我的热情和努力。希望你能在这里找到灵感或乐趣！</p>
       </div>
 
       {/* 分类筛选 */}

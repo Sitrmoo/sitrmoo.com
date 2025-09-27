@@ -5,9 +5,9 @@
   padding: 24px 20px;
   margin-top: auto; /* 配合父容器 flex 布局，把 Footer 推到底部 */
   
-  /* 配色符合之前的色彩方案 */
-  background-color: #F5F7FA; /* 中性背景色 */
-  border-top: 1px solid #E5E7EB; /* 淡灰分割线 */
+  /* 使用主题变量 */
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
 }
 
 .footer-social {
@@ -19,17 +19,17 @@
 
 .footer-social-link {
   /* 图标样式 */
-  color: #165DFF; /* 主色调 */
+  color: var(--primary); /* 主色调 */
   font-size: 1.2rem;
   transition: color 0.3s ease; /*  hover 过渡效果 */
 }
 
 .footer-social-link:hover {
-  color: #FF7D00; /*  hover 时变辅助色 */
+  color: var(--secondary); /*  hover 时变辅助色 */
 }
 
 .footer-copyright {
   text-align: center;
-  color: #666666; /* 次要文本色 */
+  color: var(--text-secondary); /* 次要文本色 */
   font-size: 0.9rem;
 }

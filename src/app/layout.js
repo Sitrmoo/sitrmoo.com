@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: '流月',
   description: '静水映长天',
+  icons: {
+    icon: '/icon.svg'
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -18,19 +18,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.introSection {
-  flex: 1;
-}
-
 .introSection h1 {
   font-size: 2.5rem;
-  color: #165DFF;
+  color: var(--primary);
   margin-bottom: 16px;
 }
-
 .introSection p {
   font-size: 1.1rem;
-  color: #333333;
+  color: var(--text-primary);
   line-height: 1.6;
   margin-bottom: 12px;
 }
