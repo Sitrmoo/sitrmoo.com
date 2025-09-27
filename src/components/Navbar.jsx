@@ -59,6 +59,8 @@ export default function Navbar() {
           className="menu-button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "关闭菜单" : "打开菜单"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           {/* 汉堡菜单图标将通过样式实现 */}
           <span className="menu-icon"></span>
@@ -66,7 +68,7 @@ export default function Navbar() {
         
         {/* 移动端菜单 */}
         {isMenuOpen && (
-          <ul className="mobile-menu">
+          <ul id="mobile-menu" className="mobile-menu" role="menu">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link 

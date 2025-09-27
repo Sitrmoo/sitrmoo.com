@@ -67,7 +67,6 @@ a:hover {
   color: var(--primary-dark);
 }
 
-
 /* 按钮基础样式 */
 .btn {
   display: inline-block;
@@ -178,31 +177,24 @@ a:hover {
   font-size: 1.5rem;
 }
 
-/* 当汉堡菜单处于打开状态时添加 open 类（组件会控制） */
-.menu-button.open {
-  outline: none;
-}
-.menu-button.open .menu-icon {
-  background: transparent;
-}
-.menu-button.open .menu-icon::before {
-  transform: translateY(7px) rotate(45deg);
-}
-.menu-button.open .menu-icon::after {
-  transform: translateY(-7px) rotate(-45deg);
+.mobile-menu {
+  list-style: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
-
-/* 合并后的移动端菜单项样式（用于下拉式 .mobile-menu） */
 .mobile-menu li {
-  margin: 0;
+  margin-bottom: 16px;
 }
+
 .mobile-menu a {
   color: var(--text-primary);
   font-weight: 500;
   display: block;
-  padding: 10px 16px;
+  padding: 8px 0;
 }
+
 .mobile-menu a.active {
   color: var(--primary);
 }
@@ -225,7 +217,52 @@ a:hover {
   }
 }
 
+/* 移动端导航细化样式 */
+.menu-icon {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  position: relative;
+}
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.menu-icon::before { top: -7px; }
+.menu-icon::after { top: 7px; }
 
+/* 当按钮处于打开状态时，通过父按钮的 class 控制（JS 已渲染），这里提供通用选择器 */
+.menu-button[aria-label*="关闭"] .menu-icon {
+  background: transparent;
+}
+.menu-button[aria-label*="关闭"] .menu-icon::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-button[aria-label*="关闭"] .menu-icon::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+  list-style: none;
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  animation: slideDown 180ms ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* 移动端 logo 与菜单小尺寸调整 */
 .mobile-logo {
