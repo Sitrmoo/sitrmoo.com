@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Particles from '@/components/Particles';
+import PageTransition from '@/components/PageTransition';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,7 +35,9 @@ export default function RootLayout({ children }) {
           
           {/* 页面主体内容 */}
           <main className="main-content">
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </main>
           
           {/* 页脚 */}

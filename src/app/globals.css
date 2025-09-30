@@ -881,3 +881,25 @@ a:hover {
 body.menu-open {
   overflow: hidden;
 }
+
+/* 页面淡入淡出过渡样式 */
+.page-transition-wrapper {
+  transition: opacity 300ms cubic-bezier(.2,.9,.2,1), transform 300ms cubic-bezier(.2,.9,.2,1);
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  will-change: opacity, transform;
+}
+
+.page-transition-wrapper.exit {
+  opacity: 0;
+  transform: translate3d(0,4px,0);
+}
+
+.page-transition-wrapper.enter {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* 在需要时可添加更复杂的过渡（scale、blur 等），当前保持简洁 */
+
+/* 保持动画行为一致（不基于用户偏好），首页会单独有淡入 */
