@@ -324,10 +324,9 @@ a:hover {
 
 /* 作品页面样式 */
 .works-page {
-  padding: 60px 0;
+  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* 页面标题 */
