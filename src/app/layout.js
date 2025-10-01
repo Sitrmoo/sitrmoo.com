@@ -3,11 +3,15 @@ import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Particles from '@/components/Particles';
+import PageTransition from '@/components/PageTransition';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: '流月',
+  title: {
+    default: '流月 - 静水映长天',
+    template: '%s | 流月'
+  },
   description: '静水映长天',
   icons: {
     icon: '/icon.svg'
@@ -22,6 +26,9 @@ export default function RootLayout({ children }) {
           src="https://kit.fontawesome.com/7bc800185a.js" 
           crossOrigin="anonymous" 
         />
+        <noscript>
+          <style>{`.page-transition-wrapper{opacity:1;transform:none !important;}`}</style>
+        </noscript>
       </head>
       <body className={`${inter.className} global-background`}>
         {/* 粒子效果背景 */}
@@ -34,7 +41,9 @@ export default function RootLayout({ children }) {
           
           {/* 页面主体内容 */}
           <main className="main-content">
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </main>
           
           {/* 页脚 */}

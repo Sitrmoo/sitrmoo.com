@@ -38,6 +38,13 @@
   z-index: 0;
 }
 
+/* 使背景粒子更柔和：模糊与合成提示（性能友好） */
+.particles-container {
+  filter: blur(2.5px) saturate(1.03);
+  will-change: filter, opacity;
+  opacity: 0.95;
+}
+
 /* 内容容器样式 */
 .page-container {
   max-width: 1200px;
@@ -61,6 +68,20 @@ a {
 
 a:hover {
   color: var(--primary-dark);
+}
+
+/* Remove the browser default outline on anchors but keep a subtle focus-visible ring
+   for keyboard users to preserve accessibility. If you want to remove focus styles
+   entirely, replace the :focus-visible rule with nothing. */
+a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(43,175,144,0.12);
+  border-radius: 4px;
 }
 
 /* 按钮基础样式 */
@@ -324,10 +345,9 @@ a:hover {
 
 /* 作品页面样式 */
 .works-page {
-  padding: 60px 0;
+  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 /* 页面标题 */
@@ -880,4 +900,122 @@ a:hover {
 /* 确保页面内容在菜单打开时不会滚动 */
 body.menu-open {
   overflow: hidden;
+}
+
+/* 页面淡入淡出过渡样式 */
+.page-transition-wrapper {
+  /* 默认保持隐藏，避免首次渲染时短暂显示后才开始过渡（flash） */
+  /* 主内容淡入：更快以配合快速切换 */
+  transition: opacity 300ms cubic-bezier(.2,.9,.2,1), transform 300ms cubic-bezier(.2,.9,.2,1);
+  opacity: 0;
+  transform: translate3d(0,4px,0);
+  will-change: opacity, transform;
+
+  /* 为遮罩擦除动画提供定位上下文 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 退出状态（与默认相同） */
+.page-transition-wrapper.exit {
+  opacity: 0;
+  transform: translate3d(0,4px,0);
+}
+
+/* 进入可见状态：从隐藏过渡到可见 */
+.page-transition-wrapper.enter {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* 帮助类：临时禁用 transition，用于立即交换内容后再触发淡入 */
+.no-transition {
+  transition: none !important;
+}
+
+/* Wipe overlay （遮罩擦除）样式 */
+.wipe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 60;
+  /* 斜向透明渐变：营造柔和擦除带状，中心带色，边缘透明 */
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.12) 45%, rgba(0,0,0,0.12) 55%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  /* 更快的擦除动作 */
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+.wipe-overlay.in {
+  transform: translateX(0);
+}
+
+.wipe-overlay.out {
+  transform: translateX(100%);
+}
+
+/* 斜向遮罩同时配合主内容的轻微缩放与模糊，增加纵深感 */
+.page-transition-wrapper.wiping {
+  transform: scale(0.992);
+  filter: blur(0.6px);
+  /* 使用更短时长以跟随快速擦除动作 */
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), filter 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* 进入时从模糊到清晰的过渡（Gaussian blur -> clear） */
+.page-transition-wrapper.blurred {
+  filter: blur(6px);
+  transition: filter 300ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* 在需要时可添加更复杂的过渡（scale、blur 等），当前保持简洁 */
+
+/* 保持动画行为一致（不基于用户偏好），首页会单独有淡入 */
+
+/* 辅助：靠边的返回作品列表按钮（不显眼，可复用在每个作品页） */
+.back-to-works {
+  position: fixed;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 10px;
+  font-size: 0.92rem;
+  color: var(--muted, #9CA3AF);
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  text-decoration: none;
+  opacity: 0.72;
+  transition: opacity 160ms ease, transform 160ms ease;
+  z-index: 80;
+  backdrop-filter: blur(4px);
+}
+
+.back-to-works:hover,
+.back-to-works:focus {
+  opacity: 1;
+  transform: translateY(-50%) translateX(6px);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .back-to-works {
+    left: 12px;
+    top: auto;
+    bottom: 12px;
+    transform: none;
+    padding: 8px 10px;
+    font-size: 0.88rem;
+  }
+}
+
+/* bottom variant: center horizontally near bottom for content pages */
+.back-to-works.bottom {
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  bottom: 20px;
 }

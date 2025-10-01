@@ -1,6 +1,7 @@
-"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
+
+export const metadata = { description: '流月的个人主页，介绍作者、展示作品与博客链接。' };
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
           一名来自重庆市的高中生。
         </p>
         <p className={styles.introText}>
-          我在这里，一边攀登着书山题海，一边悄悄学习着各种有趣的新技能——也许是几行代码，也许是几笔插画，也许是刚学会剪辑的一段视频。这个小小的数字角落，就像我的一方实验田，可能会成为我分享练习成果和成长点滴的地方。
+          建造一些东西，感受一些事物。在生活，在记录。
         </p>
         <p className={styles.introText}>
           欢迎你的到来，很高兴与你相遇。

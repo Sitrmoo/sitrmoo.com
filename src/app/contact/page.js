@@ -9,6 +9,7 @@ import {
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 // 页面元数据 - 现在可以正常导出，因为这是服务器组件
+export const metadata = { title: '联系', description: '联系流月：QQ、Telegram、Messenger 或邮件，欢迎交流与合作。' };
 
 
 export default function ContactPage() {
