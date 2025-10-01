@@ -26,7 +26,6 @@ export default function PageTransition({ children, className = "" }) {
 
     if (pathname === prevPathRef.current) return;
 
-    // on navigation: animate out, then swap content on transition end
     const el = wrapperRef.current;
     if (!el) {
       setDisplayChildren(children);
@@ -35,29 +34,50 @@ export default function PageTransition({ children, className = "" }) {
       return;
     }
 
-    const handleTransitionEnd = (e) => {
+    // add subtle wiping scale during blur for depth
+    el.classList.add('wiping');
+
+    // Blur-based sequence: blur current content -> swap while blurred -> unblur to reveal
+    let finished = false;
+
+    const onBlurEnd = (e) => {
+      // only react to the wrapper's filter transition
       if (e.target !== el) return;
-      el.removeEventListener('transitionend', handleTransitionEnd);
-      // swap content and perform enter (fade-in)
+      if (e.propertyName && e.propertyName !== 'filter') return;
+      el.removeEventListener('transitionend', onBlurEnd);
+      // swap content while blurred
       setDisplayChildren(children);
-      // next frame to ensure DOM updated, then trigger enter
-      requestAnimationFrame(() => setVisible(true));
+      // next frame: remove blur to animate to clear, and remove wiping after reveal
+      requestAnimationFrame(() => {
+        el.classList.remove('blurred');
+        setVisible(true);
+        el.classList.remove('wiping');
+      });
+      finished = true;
       prevPathRef.current = pathname;
     };
 
-    // start exit (fade out)
-    setVisible(false);
-    el.addEventListener('transitionend', handleTransitionEnd);
+    // start blur on wrapper
+    el.classList.add('blurred');
+    el.addEventListener('transitionend', onBlurEnd);
 
     // safety fallback in case transitionend doesn't fire
     const fallback = setTimeout(() => {
-      el.removeEventListener('transitionend', handleTransitionEnd);
+      if (finished) return;
+      el.removeEventListener('transitionend', onBlurEnd);
       setDisplayChildren(children);
-      requestAnimationFrame(() => setVisible(true));
+      requestAnimationFrame(() => {
+        el.classList.remove('blurred');
+        setVisible(true);
+        el.classList.remove('wiping');
+      });
       prevPathRef.current = pathname;
     }, 700);
 
-    return () => clearTimeout(fallback);
+    return () => {
+      clearTimeout(fallback);
+      el.removeEventListener('transitionend', onBlurEnd);
+    };
   }, [pathname, children]);
 
   return (
