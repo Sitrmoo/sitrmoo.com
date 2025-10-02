@@ -8,7 +8,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: 'github', url: 'https://github.com/gbhf0020', alt: 'GitHub' },
     { icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=61576970621844', alt: 'Facebook' },
-    { icon: 'envelope', url: 'mailto:gbhf0020@gmial.com', alt: '邮箱' },
+    { icon: 'twitter', url: 'https://x.com/gbhf0020', alt: 'X' },
   ];
 
   return (
