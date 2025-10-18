@@ -7,7 +7,15 @@
       { "text": "立即阅读（未完成）", "url": "https://camellia.786692.xyz" },
       { "text": "查看详情", "url": "./works/camellia" }
     ]
+  },
+  {
+    "title": "LunaVerse",
+    "tags": ["Typora","主题"],
+    "description": "简约的 Typora 主题，以蓝色为主色调。",
+    "buttons": [
+      { "text": "了解更多", "url": "./works/lunaverse" },
+      { "text": "查看源码", "url": "https://github.com/gbhf0020/typora-theme-lunaverse" }
+    ]
   }
-  
 ]
     
