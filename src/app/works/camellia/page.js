@@ -12,6 +12,7 @@ export default function ShanchaPage() {
         <h1>二十二年后的山茶</h1>
         <p className="subtitle">流月  著</p>
       </div>
+      <BackToWorks />
 
       <section className="project-body">
 
@@ -22,15 +23,30 @@ export default function ShanchaPage() {
           <p>而她握着染血的过去，站在真相的对岸</p>
         </div>
       </section>
-      <BackToWorks />
+
 
       
 
       <style>{`
         .project-page { padding: 48px 20px; max-width: 920px; margin: 0 auto; color: var(--text-primary); }
-        .project-page .page-header { margin-bottom: 18px; }
-        .project-page .page-header h1 { font-size: 2rem; margin: 0 0 6px; font-weight: 700; letter-spacing: .02em; }
-        .project-page .page-header .subtitle { color: var(--muted, #9CA3AF); margin: 0; font-size: .95rem; }
+        .works-page.project-page .page-header { 
+          margin-bottom: 18px; 
+          text-align: center; 
+        }
+        .works-page.project-page .page-header h1 { 
+          font-size: 2rem; 
+          margin: 0 0 6px; 
+          font-weight: 700; 
+          letter-spacing: .02em; 
+          text-align: center;
+        }
+        .works-page.project-page .page-header .subtitle { 
+          color: var(--muted, #9CA3AF); 
+          margin: 0 auto; 
+          font-size: .95rem; 
+          text-align: center;
+          max-width: none;
+        }
 
         .project-body { margin-top: 20px; }
         .camellia-paragraph { 
