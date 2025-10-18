@@ -54,6 +54,7 @@
   z-index: 1; /* 确保内容在粒子上方 */
 }
 
+
 /* 主内容区域样式 */
 .main-content {
   padding: 60px 0;
@@ -94,6 +95,18 @@ a:focus-visible {
   cursor: pointer;
   border: none;
   font-size: 1rem;
+}
+
+/* 按钮轮廓样式 - 与链接保持一致 */
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(43,175,144,0.12);
+  border-radius: 4px;
 }
 
 .btn-primary {
@@ -231,6 +244,18 @@ a:focus-visible {
   /* 隐藏桌面端菜单 */
   .navbar-menu {
     display: none;
+  }
+  
+  /* 移动端按钮轮廓样式 */
+  button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(43,175,144,0.12);
+    border-radius: 4px;
   }
 }
 
@@ -975,40 +1000,52 @@ body.menu-open {
 
 /* 保持动画行为一致（不基于用户偏好），首页会单独有淡入 */
 
-/* 辅助：靠边的返回作品列表按钮（不显眼，可复用在每个作品页） */
+/* 辅助：返回作品列表按钮（在页面内容区域内居左显示） */
 .back-to-works {
-  position: fixed;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 8px 10px;
+  display: inline-block;
+  padding: 8px 12px;
   font-size: 0.92rem;
   color: var(--muted, #9CA3AF);
-  background: rgba(255,255,255,0.02);
+  background: rgba(255,255,255,0.85);
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
   text-decoration: none;
-  opacity: 0.72;
+  opacity: 0.8;
   transition: opacity 160ms ease, transform 160ms ease;
-  z-index: 80;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 120px;
+  margin-bottom: 20px;
 }
 
 .back-to-works:hover,
 .back-to-works:focus {
   opacity: 1;
-  transform: translateY(-50%) translateX(6px);
+  transform: translateX(6px);
   outline: none;
+}
+
+.back-to-works:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(43,175,144,0.12);
+  border-radius: 8px;
 }
 
 @media (max-width: 640px) {
   .back-to-works {
-    left: 12px;
-    top: auto;
-    bottom: 12px;
-    transform: none;
     padding: 8px 10px;
     font-size: 0.88rem;
+  }
+  
+  .back-to-works:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .back-to-works:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(43,175,144,0.12);
+    border-radius: 8px;
   }
 }
 
