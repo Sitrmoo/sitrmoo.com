@@ -7,7 +7,7 @@ export default function Footer() {
   // 社交链接数据：可根据需要添加/删除
   const socialLinks = [
     { icon: 'github', url: 'https://github.com/gbhf0020', alt: 'GitHub' },
-    { icon: 'facebook', url: 'https://www.facebook.com/profile.php?id=61576970621844', alt: 'Facebook' },
+    { icon: 'instagram', url: 'https://www.instagram.com/sitrmoo0020', alt: 'Instagram' },
     { icon: 'twitter', url: 'https://x.com/gbhf0020', alt: 'X' },
   ];
 
