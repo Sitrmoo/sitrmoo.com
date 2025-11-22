@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>页面不存在</h1>
-      <p className={styles.subtitle}>你访问的页面可能已被移除、重命名，或暂时不可用。别担心，你可以返回首页或者联系我。</p>
+      <p className={styles.subtitle}>我们都在时间里迷路，恰好，您走到了一个未标注的刻度。</p>
 
       <div className={styles.illustration} aria-hidden>
         {/* Simple decorative SVG */}
@@ -19,7 +19,6 @@ export default function NotFound() {
 
       <div className={styles.actions}>
         <Link href="/" className={`${styles.btn} ${styles.primary}`}>返回首页</Link>
-        <Link href="/contact" className={`${styles.btn} ${styles.ghost}`}>联系我</Link>
       </div>
     </div>
   );
