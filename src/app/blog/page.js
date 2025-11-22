@@ -10,7 +10,7 @@ export default function BlogPage() {
     <div className="blog-page">
       <div className="page-header">
         <h1>博客文章</h1>
-        <p>来自 blog.786692.xyz 的最新内容</p>
+        <p>来自 blog.sitrmoo.com 的最新内容</p>
       </div>
 
       <BlogClient />

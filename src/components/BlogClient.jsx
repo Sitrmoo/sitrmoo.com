@@ -24,7 +24,7 @@ export default function BlogClient() {
     let mounted = true;
     const fetchFeed = async () => {
       try {
-        const rssUrl = 'https://blog.786692.xyz/rss.xml';
+        const rssUrl = 'https://blog.sitrmoo.com/rss.xml';
         const corsProxy = 'https://api.allorigins.win/get?url=';
         const proxyUrl = `${corsProxy}${encodeURIComponent(rssUrl)}`;
         const res = await fetch(proxyUrl);
