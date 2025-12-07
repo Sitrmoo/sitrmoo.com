@@ -70,7 +70,7 @@ export default function ContactPage() {
             <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
             <span className="contact-label">电子邮件：</span>
             <Link 
-              href="mailto:gbhf0020@gmail.com"
+              href="mailto:hi@sitrmoo.com"
               className="contact-link"
             >
               hi@sitrmoo.com
