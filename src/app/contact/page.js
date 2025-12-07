@@ -73,7 +73,7 @@ export default function ContactPage() {
               href="mailto:gbhf0020@gmail.com"
               className="contact-link"
             >
-              gbhf0020@gmail.com
+              hi@sitrmoo.com
             </Link>
           </li>
         </ul>
