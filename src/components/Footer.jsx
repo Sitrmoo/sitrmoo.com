@@ -4,11 +4,11 @@ import Link from 'next/link';
 export default function Footer() {
   const currentYear = new Date().getFullYear(); // 自动更新年份，无需手动修改
 
-  // 社交链接数据：可根据需要添加/删除
+  // 社交链接数据：使用 Font Awesome Kit（通过 <Script> 加载）提供品牌图标类名
   const socialLinks = [
-    { icon: 'github', url: 'https://github.com/gbhf0020', alt: 'GitHub' },
-    { icon: 'instagram', url: 'https://www.instagram.com/sitrmoo0020', alt: 'Instagram' },
-    { icon: 'twitter', url: 'https://x.com/gbhf0020', alt: 'X' },
+    { iconClass: 'fa-brands fa-github', url: 'https://github.com/gbhf0020', alt: 'GitHub' },
+    { iconClass: 'fa-brands fa-x-twitter', url: 'https://x.com/gbhf0020', alt: 'X' },
+    { iconClass: 'fa-brands fa-instagram', url: 'https://www.instagram.com/sitrmoo0020', alt: 'Instagram' },
   ];
 
   return (
@@ -30,9 +30,8 @@ export default function Footer() {
                 aria-label={link.alt}
                 className="footer-social-link"
               >
-                {/* 这里用 react-icons 图标（之前推荐的本地方案），无远程加载延迟 */}
-                {/* 若用 SVG 图标，直接替换 <i> 标签为 SVG 代码即可 */}
-                <i className={`fa fa-${link.icon}`}></i>
+                {/* 使用 Font Awesome Kit 的类名（例如：'fa-brands fa-github'）。如需替换为 SVG，请直接用 SVG 代码 */}
+                <i className={link.iconClass} aria-hidden="true"></i>
               </Link>
             </li>
           ))}
