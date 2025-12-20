@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export const metadata = { description: '流月的个人主页，介绍作者、展示作品与博客链接。' };
+export const metadata = { description: '流月的个人网站。' };
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
           一名来自重庆市的高中生。
         </p>
         <p className={styles.introText}>
-          建造一些东西，感受一些事物。在生活，在记录。
+          在世间留下痕迹，总有一刻值得铭记。
         </p>
         <p className={styles.introText}>
           欢迎你的到来，很高兴与你相遇。

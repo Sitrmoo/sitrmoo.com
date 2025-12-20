@@ -394,43 +394,7 @@ button:focus-visible {
   margin: 0 auto;
 }
 
-/* 分类筛选 */
-.categories-filter {
-  margin-bottom: 40px;
-}
-
-.categories-filter ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.category-item {
-  padding: 8px 16px;
-  border-radius: 20px;
-  background-color: white;
-  color: var(--text-primary);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1px solid var(--border);
-}
-
-.category-item:hover {
-  background-color: var(--primary-light);
-  color: var(--primary);
-  border-color: var(--primary-light);
-}
-
-.category-item.active {
-  background-color: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
+/* 分类筛选已移除（样式已删除） */
 
 /* 作品网格 */
 .works-grid {
@@ -627,11 +591,12 @@ button:focus-visible {
 }
 
 .contact-content {
-  background-color: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: var(--shadow-sm);
-  margin-top: 30px;
+  /* 取消白色卡片外观，使用页面默认背景并去掉阴影 */
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 8px;
 }
 
 .contact-content p {
@@ -648,11 +613,12 @@ button:focus-visible {
 }
 
 .contact-content {
-  background-color: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: var(--shadow-sm);
-  margin-top: 30px;
+  /* 取消白色卡片外观，使用页面默认背景并去掉阴影 */
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-top: 8px;
 }
 
 .contact-content p {
@@ -682,9 +648,11 @@ button:focus-visible {
 }
 
 .contact-icon {
-  width: 24px;
-  height: 24px;
+  font-size: 20px; /* 以字体图标为主 */
   color: var(--primary);
+  display: inline-block;
+  width: 24px;
+  text-align: center;
   flex-shrink: 0; /* 图标不收缩 */
 }
 
@@ -692,7 +660,7 @@ button:focus-visible {
   font-weight: 500;
   color: var(--text-primary);
   flex-shrink: 0; /* 标签不收缩 */
-  min-width: 70px; /* 确保标签有足够宽度 */
+  min-width: 40px; /* 缩小标签最小宽度，减少空隙 */
 }
 
 .contact-link {
@@ -701,8 +669,9 @@ button:focus-visible {
   transition: color 0.2s ease;
   overflow: hidden; /* 处理长链接 */
   text-overflow: ellipsis; /* 超长时显示省略号 */
-  white-space: nowrap;
-  flex-grow: 1; /* 链接占剩余空间 */
+  white-space: nowrap; /* 在宽屏下保持单行 */
+  display: inline-block; /* 不让链接自动占用剩余空间 */
+  flex: 0 0 auto;
 }
 
 .contact-link:hover {
@@ -721,7 +690,6 @@ button:focus-visible {
   }
   
   .contact-item {
-    /* 保持flex布局，确保在同一行 */
     display: flex;
     align-items: center;
     padding: 14px 0;
@@ -732,6 +700,7 @@ button:focus-visible {
   .contact-label {
     min-width: 60px; /* 移动端标签宽度稍小 */
     font-size: 0.9rem;
+    flex-shrink: 0;
   }
   
   .contact-link {
@@ -740,6 +709,27 @@ button:focus-visible {
     flex-grow: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-item {
+    /* 在超小屏幕下改为垂直堆叠，便于换行显示 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .contact-label {
+    min-width: auto;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .contact-link {
+    white-space: normal; /* 允许换行显示长链接或邮箱 */
   }
 }
 
