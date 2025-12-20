@@ -4,28 +4,11 @@ import { useEffect, useState } from 'react';
 
 export default function WorksClient({ initialWorks = [] }) {
   const [works, setWorks] = useState(initialWorks);
-  const [filteredWorks, setFilteredWorks] = useState(initialWorks);
-  const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('全部');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setWorks(initialWorks);
-    setFilteredWorks(initialWorks);
-    const allTags = ['全部'];
-    initialWorks.forEach(work => {
-      (work.tags || []).forEach(tag => {
-        if (!allTags.includes(tag)) allTags.push(tag);
-      });
-    });
-    setCategories(allTags);
   }, [initialWorks]);
-
-  const handleCategoryChange = (category) => {
-    setActiveCategory(category);
-    if (category === '全部') setFilteredWorks(works);
-    else setFilteredWorks(works.filter(w => (w.tags || []).includes(category)));
-  };
 
   if (isLoading) {
     return (
@@ -37,23 +20,9 @@ export default function WorksClient({ initialWorks = [] }) {
 
   return (
     <>
-      <div className="categories-filter">
-        <ul>
-          {categories.map((category) => (
-            <li
-              key={category}
-              className={`category-item ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => handleCategoryChange(category)}
-            >
-              {category}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {filteredWorks.length > 0 ? (
+      {works.length > 0 ? (
         <div className="works-grid">
-          {filteredWorks.map((work, index) => (
+          {works.map((work, index) => (
             <div key={index} className="work-card">
               <div className="work-info">
                 <h3 className="work-title">{work.title}</h3>
@@ -83,7 +52,7 @@ export default function WorksClient({ initialWorks = [] }) {
           ))}
         </div>
       ) : (
-        <div className="no-works"><p>暂无该分类的作品数据</p></div>
+        <div className="no-works"><p>暂无作品数据</p></div>
       )}
     </>
   );

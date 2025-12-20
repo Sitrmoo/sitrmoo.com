@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Particles from '@/components/Particles';
 import PageTransition from '@/components/PageTransition';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,9 +23,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="zh-CN">
       <head>
-        <script 
-          src="https://kit.fontawesome.com/7bc800185a.js" 
-          crossOrigin="anonymous" 
+        <Script
+          src="https://kit.fontawesome.com/7bc800185a.js"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
         <noscript>
           <style>{`.page-transition-wrapper{opacity:1;transform:none !important;}`}</style>
