@@ -715,21 +715,28 @@ button:focus-visible {
 
 @media (max-width: 480px) {
   .contact-item {
-    /* 在超小屏幕下改为垂直堆叠，便于换行显示 */
+    /* 超小屏下允许换行但保持横向布局以避免不必要的垂直分离 */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     gap: 6px;
+    flex-wrap: wrap; /* 允许链接在必要时换行而不把标签单独挤到上面 */
   }
 
   .contact-label {
     min-width: auto;
     font-size: 0.95rem;
     text-align: left;
+    margin-right: 8px;
+    flex: 0 0 auto;
   }
 
   .contact-link {
-    white-space: normal; /* 允许换行显示长链接或邮箱 */
+    white-space: normal; /* 允许长链接换行 */
+    flex: 1 1 auto;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
