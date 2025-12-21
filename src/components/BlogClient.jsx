@@ -3,16 +3,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+// 解析逻辑已移到服务器端，现在直接从 /api/rss 获取已解析的 JSON 列表。
 function parseRSS(xmlText) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(xmlText, 'application/xml');
-  const items = Array.from(doc.querySelectorAll('item'));
-  return items.map(item => ({
-    title: item.querySelector('title')?.textContent || '无标题',
-    link: item.querySelector('link')?.textContent || '#',
-    pubDate: item.querySelector('pubDate')?.textContent || '',
-    description: item.querySelector('description')?.textContent || ''
-  }));
+  // 保留空函数以防回退使用；目前不被调用。
+  return [];
 }
 
 export default function BlogClient() {
@@ -24,13 +18,10 @@ export default function BlogClient() {
     let mounted = true;
     const fetchFeed = async () => {
       try {
-        const rssUrl = 'https://blog.sitrmoo.com/rss.xml';
-        const corsProxy = 'https://api.allorigins.win/get?url=';
-        const proxyUrl = `${corsProxy}${encodeURIComponent(rssUrl)}`;
-        const res = await fetch(proxyUrl);
+        const res = await fetch('/api/rss');
         if (!res.ok) throw new Error('RSS 请求失败');
         const data = await res.json();
-        const parsed = parseRSS(data.contents);
+        const parsed = data.items || [];
         if (mounted) setPosts(parsed);
       } catch (err) {
         console.error(err);
