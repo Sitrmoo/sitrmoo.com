@@ -60,7 +60,7 @@ export async function POST(req) {
       return NextResponse.json({ ok: false, message: '服务器未配置发送目标' }, { status: 500 });
     }
 
-    const text = `<b>新消息来自个人网站</b>\n<b>姓名:</b> ${escapeHtml(name)}\n<b>邮箱:</b> ${escapeHtml(email)}\n\n${escapeHtml(message)}`;
+    const text = `<b>个人网站的留言</b>\n<b>姓名:</b> ${escapeHtml(name)}\n<b>邮箱:</b><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>\n\n${escapeHtml(message)}`;
 
     const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
@@ -71,7 +71,7 @@ export async function POST(req) {
     if (!tgRes.ok) {
       const errText = await tgRes.text();
       console.error('Telegram error', errText);
-      return NextResponse.json({ ok: false, message: '向 Telegram 发送失败' }, { status: 500 });
+      return NextResponse.json({ ok: false, message: '发送失败' }, { status: 500 });
     }
 
     // Optional: persist messages to DB here (e.g., Supabase, Postgres)
