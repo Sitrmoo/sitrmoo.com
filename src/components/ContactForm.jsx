@@ -57,7 +57,7 @@ export default function ContactForm({ open: externalOpen, onClose }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data?.message || '发送失败');
 
-      setFeedback({ type: 'success', text: '消息已发送，感谢联系！' });
+      setFeedback({ type: 'success', text: '消息已发送，感谢留言！' });
       setName(''); setEmail(''); setMessage('');
       // 关闭：优先调用父 onClose，否则关闭内部状态
       if (onClose) onClose(); else setOpenInternal(false);

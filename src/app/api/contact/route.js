@@ -60,7 +60,9 @@ export async function POST(req) {
       return NextResponse.json({ ok: false, message: '服务器未配置发送目标' }, { status: 500 });
     }
 
-    const text = `<b>个人网站的留言</b>\n<b>姓名:</b> ${escapeHtml(name)}\n<b>邮箱:</b><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a>\n\n${escapeHtml(message)}`;
+    const subject = encodeURIComponent('留言回复-流月');
+    const mailto = `mailto:${encodeURIComponent(email)}?subject=${subject}`;
+    const text = `<b>个人网站的留言</b>\n<b>姓名:</b> ${escapeHtml(name)}\n<b>邮箱:</b> <a href="${mailto}">${escapeHtml(email)}</a>\n\n${escapeHtml(message)}`;
 
     const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
