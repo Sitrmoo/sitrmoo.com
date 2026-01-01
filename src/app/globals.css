@@ -394,6 +394,43 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+/* ============== 联系表单（全局样式） ============== */
+.contact-wrapper { max-width: 760px; margin: 12px auto 48px; }
+
+/* inline toggle that matches page headings */
+.contact-header-row { display:flex; align-items:center; gap:12px; justify-content:space-between; }
+.contact-heading { background: none; border: 0; padding: 0; cursor: pointer; text-align: left }
+.contact-heading h2 { font-size: 1.3rem; color: var(--primary); margin: 8px 0; }
+.contact-heading:focus { outline: none; box-shadow: 0 0 0 4px rgba(43,175,144,0.06); border-radius: 6px }
+
+/* collapse panel kept simple and inline */
+.contact-panel { max-height:0; overflow:hidden; transition: max-height 260ms cubic-bezier(.2,.9,.2,1), padding 180ms; }
+.contact-panel.open { padding-top:14px; max-height:720px; }
+
+/* inline form that matches the site's rhythm */
+.contact-form-inline { display:block; gap:12px }
+.field-row { display:flex; gap:12px }
+.field { flex:1; display:flex; flex-direction:column; margin-bottom:12px }
+.label { font-size:13px; color:var(--text-primary); margin-bottom:6px }
+input, textarea { padding:10px 12px; font-size:14px; border:1px solid #E9F5F1; border-radius:6px; background:transparent; color:var(--text-primary) }
+input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 4px rgba(43,175,144,0.06); }
+textarea { min-height:120px; resize:vertical }
+
+.actions { display:flex; gap:8px; align-items:center; margin-top:8px }
+.btn-muted { background:transparent; border:1px solid #E9F5F1; color:var(--text-primary); padding:8px 12px; border-radius:6px }
+
+.feedback { margin-top:12px; padding:10px 12px; border-radius:8px }
+.feedback.error { background:#fff5f5; color:#9f1239; border:1px solid #fecaca }
+.feedback.success { background:#ecfdf5; color:#065f46; border:1px solid #bbf7d0 }
+
+@media (max-width:640px) {
+  .field-row { flex-direction:column }
+  .contact-wrapper { padding:0 6px }
+  .contact-header-row { flex-direction:column; align-items:flex-start }
+  .contact-note { margin-left:0; }
+}
+
+
 /* 分类筛选已移除（样式已删除） */
 
 /* 作品网格 */

@@ -6,6 +6,8 @@ import Link from 'next/link';
 export const metadata = { title: '联系', description: '联系流月：QQ、Telegram、Messenger 或邮件，欢迎交流与合作。' };
 
 
+import ContactSection from '../../components/ContactSection';
+
 export default function ContactPage() {
   return (
     <div className="contact-page">
@@ -71,6 +73,11 @@ export default function ContactPage() {
             </Link>
           </li>
         </ul>
+
+        {/* Contact section: 标题为单一触发器（在 client 组件中管理展开状态） */}
+        <div style={{ marginTop: 24 }}>
+          <ContactSection />
+        </div>
       </div>
     </div>
   );
