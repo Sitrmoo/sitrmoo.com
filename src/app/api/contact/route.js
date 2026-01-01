@@ -60,8 +60,13 @@ export async function POST(req) {
       return NextResponse.json({ ok: false, message: '服务器未配置发送目标' }, { status: 500 });
     }
 
+    // Prepare mailto link with subject and body (URL-encoded). Truncate body to avoid very long URLs.
     const subject = encodeURIComponent('留言回复-流月');
-    const mailto = `mailto:${encodeURIComponent(email)}?subject=${subject}`;
+    const MAX_BODY_LEN = 1000;
+    const trimmedMessage = message.length > MAX_BODY_LEN ? message.slice(0, MAX_BODY_LEN) + '…' : message;
+    const mailBody = encodeURIComponent(`回复：\n\n${trimmedMessage}\n\n—— 来自 ${name} <${email}>`);
+    const mailto = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${mailBody}`;
+
     const text = `<b>个人网站的留言</b>\n<b>姓名:</b> ${escapeHtml(name)}\n<b>邮箱:</b> <a href="${mailto}">${escapeHtml(email)}</a>\n\n${escapeHtml(message)}`;
 
     const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
