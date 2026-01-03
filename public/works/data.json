@@ -1,21 +1,4 @@
 [
-  {
-    "title": "二十二年后的山茶（未完成）",
-    "tags": ["小说"],
-    "description": "一部推理小说。",
-    "buttons": [
-      
-      { "text": "查看详情", "url": "./works/camellia" }
-    ]
-  },
-  {
-    "title": "LunaVerse",
-    "tags": ["Typora","主题"],
-    "description": "简约的 Typora 主题，以蓝色为主色调。",
-    "buttons": [
-      { "text": "了解更多", "url": "./works/lunaverse" },
-      { "text": "查看源码", "url": "https://github.com/gbhf0020/typora-theme-lunaverse" }
-    ]
-  }
+  
 ]
     

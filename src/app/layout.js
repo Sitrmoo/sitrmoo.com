@@ -15,7 +15,7 @@ export const metadata = {
   },
   description: '静水映长天',
   icons: {
-    icon: '/icon.svg'
+    icon: '/favicon.ico'
   },
 };
 

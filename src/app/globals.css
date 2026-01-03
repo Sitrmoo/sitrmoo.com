@@ -85,6 +85,18 @@ a:focus-visible {
   border-radius: 4px;
 }
 
+/* Mobile/touch: disable focus ring and tap highlight to avoid persistent outlines after tap */
+@media (hover: none) and (pointer: coarse) {
+  a:focus, a:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  a {
+    -webkit-tap-highlight-color: transparent; /* iOS/Android */
+    touch-action: manipulation; /* improve tap responsiveness */
+  }
+}
+
 /* 按钮基础样式 */
 .btn {
   display: inline-block;
