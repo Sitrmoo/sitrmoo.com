@@ -4,51 +4,61 @@ import Image from "next/image";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { cn } from "@/lib/utils";
 
-const favorites = [
+type FavoriteItem = {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  objectPosition: string;
+  span: string;
+  height: string;
+};
+
+const favorites: FavoriteItem[] = [
   {
     title: "城市漫步",
     subtitle: "City Walk",
     description: "在街巷中漫步，感受山城的烟火气与层次感",
     image: "/about/city-walk.webp",
-    imagePosition: "object-center" as const,
-    span: "sm:col-span-2 sm:row-span-1" as const,
-    height: "h-56 sm:h-64" as const,
+    objectPosition: "center center",
+    span: "sm:col-span-2 sm:row-span-1",
+    height: "h-56 sm:h-72",
   },
   {
     title: "哈利·波特",
     subtitle: "Harry Potter",
     description: "一直都喜欢的作品",
     image: "/about/harry-potter.jpg",
-    imagePosition: "object-center" as const,
-    span: "sm:col-span-1 sm:row-span-1" as const,
-    height: "h-56 sm:h-64 " as const,
+    objectPosition: "center center",
+    span: "sm:col-span-1 sm:row-span-1",
+    height: "h-56 sm:h-72",
   },
   {
     title: "机器人总动员",
     subtitle: "WALL-E",
     description: "一部关于孤独、希望与爱的故事",
     image: "/about/wall-e.jpg",
-    imagePosition: "object-bottom" as const,
-    span: "sm:col-span-1 sm:row-span-1" as const,
-    height: "h-56 sm:h-96" as const,
+    objectPosition: "57% 45%",
+    span: "sm:col-span-1 sm:row-span-1",
+    height: "h-56 sm:h-96",
   },
   {
     title: "听雨",
     subtitle: "Listen to Rain",
     description: "雨落窗檐，是最好的白噪音。适合发呆，适合思考",
     image: "/about/listen-rain.webp",
-    imagePosition: "object-center" as const,
-    span: "sm:col-span-1 sm:row-span-1" as const,
-    height: "h-56 sm:h-96" as const,
+    objectPosition: "center top",
+    span: "sm:col-span-1 sm:row-span-1",
+    height: "h-56 sm:h-96",
   },
   {
     title: "三角洲行动",
     subtitle: "Delta Force",
     description: "竞技与友谊，放松和紧张",
     image: "/about/delta-force.webp",
-    imagePosition: "object-center" as const,
-    span: "sm:col-span-1 sm:row-span-1" as const,
-    height: "h-56 sm:h-96" as const,
+    objectPosition: "50% 25%",
+    span: "sm:col-span-1 sm:row-span-1",
+    height: "h-56 sm:h-96",
   },
 ];
 
@@ -81,10 +91,8 @@ export function AboutFavorites() {
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
                     fill
-                    className={cn(
-                      "object-cover transition-transform duration-700 group-hover:scale-105",
-                      item.imagePosition
-                    )}
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{ objectPosition: item.objectPosition }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-5">
