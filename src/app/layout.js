@@ -13,9 +13,27 @@ export const metadata = {
     default: '流月 - 静水映长天',
     template: '%s | 流月'
   },
-  description: '静水映长天',
+  description: '来自重庆的高中生，用代码构建想象，在数字世界寻找一隅宁静。',
   icons: {
-    icon: '/favicon.ico'
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+  openGraph: {
+    siteName: '流月',
+    title: '流月 - 静水映长天',
+    description: '来自重庆的高中生，用代码构建想象，在数字世界寻找一隅宁静。',
+    url: 'https://sitrmoo.com',
+    images: [
+      {
+        url: 'https://sitrmoo.com/avatar.png',
+        width: 800,
+        height: 800,
+        alt: '流月',
+      }
+    ],
+    locale: 'zh_CN',
+    type: 'website',
   },
 };
 

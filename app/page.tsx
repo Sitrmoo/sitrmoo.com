@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { HomeHero } from "@/components/home-hero";
 import { GitHubContributions } from "@/components/github-contributions";
+
 
 export default function HomePage() {
   return (

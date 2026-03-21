@@ -8,12 +8,12 @@ export default function Home() {
     <div className={styles.homeContainer}>
       {/* 左侧：头像区域 */}
       <div className={styles.profileSection}>
-        {/* public目录下的图片直接用绝对路径引用，无需import */}
+
         <Image
-          src="/images/avatar/logo.svg"  // 关键：路径从/开始，对应public目录
+          src="/images/avatar/logo.svg"
           alt="个人头像"
-          width={300}  // 根据需要调整宽度
-          height={300} // 根据需要调整高度
+          width={300}
+          height={300}
           className={styles.profileImg}
           priority  // 首页图片优先加载，提升性能
         />
