@@ -83,7 +83,7 @@ export function GitHubContributions() {
       ) : data?.weeks ? (
         <div className="overflow-x-auto">
           {/* Month labels */}
-          <div className="mb-1.5 flex">
+          <div className="mb-1.5 hidden sm:flex">
             <div className="w-[30px] shrink-0" />
             <div className="flex flex-1">
               {(() => {
