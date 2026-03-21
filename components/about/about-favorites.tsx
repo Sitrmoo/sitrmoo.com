@@ -17,7 +17,7 @@ const favorites = [
   {
     title: "哈利·波特",
     subtitle: "Harry Potter",
-    description: "从小到大最喜欢的作品，魔法世界永远是心中的避风港",
+    description: "一直都喜欢的作品",
     image: "/about/harry-potter.jpg",
     imagePosition: "object-center" as const,
     span: "sm:col-span-1 sm:row-span-1" as const,
@@ -41,11 +41,10 @@ const favorites = [
     span: "sm:col-span-1 sm:row-span-1" as const,
     height: "h-56 sm:h-96" as const,
   },
-  
   {
     title: "三角洲行动",
     subtitle: "Delta Force",
-    description: "娱乐与友谊",
+    description: "竞技与友谊，放松和紧张",
     image: "/about/delta-force.webp",
     imagePosition: "object-center" as const,
     span: "sm:col-span-1 sm:row-span-1" as const,

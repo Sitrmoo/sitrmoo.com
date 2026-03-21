@@ -49,7 +49,7 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://www.instagram.com/sitrmoo0020",
+    href: "https://www.instagram.com/meetsitrmoo",
     icon: InstagramIcon,
   },
 ];
