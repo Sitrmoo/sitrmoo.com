@@ -31,7 +31,7 @@ export function HomeHero() {
             <div className="relative rotate-3 transition-transform duration-500 hover:rotate-0">
               <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl" />
               <Image
-                src="/avatar.png"
+                src="/avatar.jpg"
                 alt="流月的头像"
                 width={200}
                 height={200}
