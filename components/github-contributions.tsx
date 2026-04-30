@@ -71,7 +71,7 @@ export function GitHubContributions() {
         </div>
         {data && (
           <span className="text-sm text-foreground/50">
-            贡献了 {data.totalContributions} 次
+          {data.totalContributions} contributions in the last year
           </span>
         )}
       </div>
