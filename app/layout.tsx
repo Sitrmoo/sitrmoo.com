@@ -17,17 +17,31 @@ const _notoSerifSC = Noto_Serif_SC({
 
 export const metadata: Metadata = {
   title: {
-    default: "流月",
-    template: "%s - 流月",
+    default: "Sitrmoo",
+    template: "%s - Sitrmoo",
   },
-  description: "静水映长天",
-  icons: [
-    {
-      url: "/favicon.ico",
-      rel: "icon",
-      type: "image/x-icon",
-    },
-  ],
+  description: "流月 - 来自重庆的高中生，喜欢宁静。在无人一隅，静候时间流淌。",
+  keywords: ["流月", "Sitrmoo", "个人网站", "重庆"],
+  authors: [{ name: "流月" }],
+  openGraph: {
+    title: "Sitrmoo - 流月",
+    description: "我是流月，来自重庆。一名喜欢宁静的高中生，在无人一隅，静候时间流淌。",
+    url: "https://sitrmoo.com",
+    siteName: "Sitrmoo",
+    images: [
+      {
+        url: "/avatar.jpg",
+        width: 1200,
+        height: 630,
+        alt: "流月",
+      },
+    ],
+    locale: "zh_CN",
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
