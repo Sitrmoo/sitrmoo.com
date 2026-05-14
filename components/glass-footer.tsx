@@ -39,7 +39,7 @@ const InstagramIcon = ({ className }: { className?: string }) => (
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/gbhf0020",
+    href: "https://github.com/Sitrmoo",
     icon: GitHubIcon,
   },
   {
