@@ -29,8 +29,8 @@ const EmailIcon = ({ className }: { className?: string }) => (
 const contactMethods = [
   {
     name: "Telegram",
-    value: "@gbhf0020",
-    href: "https://t.me/gbhf0020",
+    value: "@Sitrmoo",
+    href: "https://t.me/sitrmoo",
     icon: TelegramIcon,
   },
   {
