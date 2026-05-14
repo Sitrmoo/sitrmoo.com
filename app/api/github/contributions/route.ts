@@ -24,7 +24,7 @@ interface GraphQLResponse {
 }
 
 export async function GET() {
-  const username = "gbhf0020";
+  const username = "Sitrmoo";
   const token = process.env.GITHUB_TOKEN;
 
   if (!token) {
