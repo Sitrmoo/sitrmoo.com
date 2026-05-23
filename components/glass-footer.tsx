@@ -44,7 +44,7 @@ const socialLinks = [
   },
   {
     name: "X",
-    href: "https://x.com/gbhf0020",
+    href: "https://x.com/Sitrmoo",
     icon: XIcon,
   },
   {
