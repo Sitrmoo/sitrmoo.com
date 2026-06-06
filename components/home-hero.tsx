@@ -22,7 +22,10 @@ export function HomeHero() {
               {"我是流月，来自重庆。"}
             </p>
             <p className="text-lg leading-relaxed text-foreground/80">
-              {"一名喜欢宁静的高中生，在无人一隅，静候时间流淌。"}
+              {"高中生，男生，喜欢折腾，热爱阅读。"}
+            </p>
+            <p className="text-lg leading-relaxed text-foreground/80">
+              {"在尽量热爱这个世界。"}
             </p>
           </div>
 
