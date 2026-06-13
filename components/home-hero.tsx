@@ -19,13 +19,13 @@ export function HomeHero() {
           {/* Text */}
           <div className="max-w-md space-y-6">
             <p className="text-lg leading-relaxed text-foreground/80">
-              {"我是流月，来自重庆。"}
+              {"正如标题，可以叫我流月，或是Sitrmoo"}
             </p>
             <p className="text-lg leading-relaxed text-foreground/80">
-              {"高中生，男生，喜欢折腾，热爱阅读。"}
+              {"我是一名高中生，生活在重庆"}
             </p>
             <p className="text-lg leading-relaxed text-foreground/80">
-              {"在尽量热爱这个世界。"}
+              {"作为一个Blogger，我乐于将所见所闻记录下，欢迎阅读我的<a href="/blog">博客文章</a>或是<a href="https://x.com/sitrmoo">X</a>帖子"}
             </p>
           </div>
 
