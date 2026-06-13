@@ -19,17 +19,28 @@ export function HomeHero() {
           {/* Text */}
           <div className="max-w-md space-y-6">
             <p className="text-lg leading-relaxed text-foreground/80">
-              正如标题，可以叫我流月，或是Sitrmoo
+              正如标题，可以叫我流月，或是 Sitrmoo。
             </p>
+
             <p className="text-lg leading-relaxed text-foreground/80">
-              我是一名高中生，生活在重庆
+              我是一名高中生，生活在重庆。
             </p>
+
             <p className="text-lg leading-relaxed text-foreground/80">
-              作为一个Blogger，我乐于将所见所闻记录下，欢迎阅读我的
-              <a href="/blog" className="text-primary hover:underline">博客文章</a>
-              或是
-              <a href="https://x.com/sitrmoo" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">X</a>
-              帖子
+              作为一个 Blogger，我乐于将所见所闻记录下，欢迎阅读我的{" "}
+              <a href="/blog" className="underline hover:opacity-80">
+                博客
+              </a>
+              {" "}文章或我的{" "}
+              <a
+                href="https://x.com/sitrmoo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-80"
+              >
+                X
+              </a>
+              {" "}Post。
             </p>
           </div>
 
@@ -39,19 +50,6 @@ export function HomeHero() {
               <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl" />
               <Image
                 src="/avatar.jpg"
-                alt="流月的头像"
-                width={200}
-                height={200}
-                className="relative h-48 w-48 rounded-full border-2 border-white/30 object-cover shadow-2xl sm:h-56 sm:w-56"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}               src="/avatar.jpg"
                 alt="流月的头像"
                 width={200}
                 height={200}
