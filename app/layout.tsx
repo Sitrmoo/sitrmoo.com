@@ -30,15 +30,24 @@ export const metadata: Metadata = {
     siteName: "Sitrmoo",
     images: [
       {
-        url: "/avatar.jpg",
+        url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "流月",
+        alt: "Sitrmoo",
       },
     ],
     locale: "zh_CN",
     type: "website",
   },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sitrmoo',
+    description: '流月是个人网站',
+    images: ['/og.png'],
+    creator: '@sitrmoo',
+  },
+  
   icons: {
     icon: "/favicon.ico",
   },
