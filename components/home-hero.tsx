@@ -23,10 +23,6 @@ export function HomeHero() {
             </p>
 
             <p className="text-lg leading-relaxed text-foreground/80">
-              我是一名高中生，生活在重庆。
-            </p>
-
-            <p className="text-lg leading-relaxed text-foreground/80">
               作为一个 Blogger，我乐于将所见所闻记录下，欢迎阅读我的{" "}
               <a href="/blog" className="underline hover:opacity-80">
                 博客
