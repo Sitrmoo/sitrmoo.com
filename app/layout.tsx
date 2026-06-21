@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Sitrmoo",
     images: [
       {
-        url: "/og.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Sitrmoo",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sitrmoo',
     description: '流月是个人网站',
-    images: ['/og.png'],
+    images: ['/og.jpg'],
     creator: '@sitrmoo',
   },
   
