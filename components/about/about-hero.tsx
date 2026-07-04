@@ -20,7 +20,7 @@ export function AboutHero() {
 
         <ScrollReveal direction="up" delay={300}>
           <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-foreground/60">
-            {"来自重庆的高中生，喜欢待在安静的角落，感受缓慢流淌的时间。"}
+            {"来自重庆的高中生，Blogger，喜欢折腾新鲜事物，喜欢很多……"}
           </p>
         </ScrollReveal>
 
