@@ -44,7 +44,7 @@ export function BlogList() {
 
   if (items.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-white/20 bg-white/10 py-20 backdrop-blur-lg">
+      <div className="paper-card flex flex-col items-center justify-center gap-4 py-20">
         <Rss className="h-10 w-10 text-foreground/20" />
         <p className="text-foreground/40">{"暂时没有博客文章"}</p>
       </div>
@@ -60,9 +60,8 @@ export function BlogList() {
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "group flex items-start justify-between gap-4 rounded-2xl border border-white/20 px-6 py-5 transition-all duration-300",
-            "bg-white/10 backdrop-blur-lg",
-            "hover:bg-white/[0.15] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]",
+            "paper-card group flex items-start justify-between gap-4 px-5 py-4 transition-all duration-300 sm:px-6 sm:py-5",
+            "hover:border-foreground/25 hover:shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_24px_-12px_rgba(0,0,0,0.1)]",
           )}
         >
           <div className="min-w-0 flex-1">

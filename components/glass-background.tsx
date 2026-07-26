@@ -1,10 +1,16 @@
 export function GlassBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10">
-      <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-[hsl(220,80%,60%)] opacity-30 blur-[120px]" />
-      <div className="absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-[hsl(200,90%,55%)] opacity-25 blur-[100px]" />
-      <div className="absolute bottom-0 left-1/4 h-[350px] w-[350px] rounded-full bg-[hsl(260,70%,55%)] opacity-20 blur-[100px]" />
-      <div className="absolute -bottom-20 right-1/4 h-[300px] w-[300px] rounded-full bg-[hsl(330,70%,55%)] opacity-15 blur-[80px]" />
+    <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
+      {/* 两侧细线框（大屏可见），营造纸面版式感 */}
+      <div className="absolute inset-y-0 left-1/2 hidden w-full max-w-5xl -translate-x-1/2 lg:block">
+        <div className="absolute inset-y-0 left-0 w-px bg-border/70" />
+        <div className="absolute inset-y-0 right-0 w-px bg-border/70" />
+      </div>
+
+      {/* 顶部细微点阵，向下淡出 */}
+      <div
+        className="dot-pattern absolute inset-x-0 top-0 h-64 opacity-[0.35] [mask-image:linear-gradient(to_bottom,black,transparent)]"
+      />
     </div>
   );
 }

@@ -16,10 +16,10 @@ interface ScrollRevealProps {
 }
 
 const translateMap: Record<Direction, string> = {
-  up: "translate-y-12",
-  down: "-translate-y-12",
-  left: "translate-x-12",
-  right: "-translate-x-12",
+  up: "translate-y-4",
+  down: "-translate-y-4",
+  left: "translate-x-4",
+  right: "-translate-x-4",
 };
 
 export function ScrollReveal({
