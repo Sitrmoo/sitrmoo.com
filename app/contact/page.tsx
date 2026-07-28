@@ -53,7 +53,7 @@ export default function ContactPage() {
           谢谢你愿意花时间走进这个小小的数字角落，无论是想聊聊学习生活、分享有趣的想法，还是有什么想一起尝试的事，我都很乐意倾听。
         </p>
 
-        <div className="max-w-2xl">
+        <div className="relative max-w-2xl">
           <p className="mb-6 font-medium text-foreground">你可以通过以下方式联系我：</p>
           <div className="grid gap-4 sm:grid-cols-2">
             {contactMethods.map((contact) => {
@@ -66,16 +66,14 @@ export default function ContactPage() {
                   rel={contact.name !== "Email" ? "noopener noreferrer" : undefined}
                   className={cn(
                     "group relative flex items-center gap-4 rounded-xl p-5",
-                    "bg-gradient-to-br from-white/10 to-white/5",
-                    "border border-white/20 backdrop-blur-sm",
+                    "paper-card",
                     "transition-all duration-300",
-                    "hover:border-white/40 hover:shadow-lg hover:shadow-white/5",
-                    "hover:-translate-y-0.5"
+                    "hover:-translate-y-0.5 hover:shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_24px_-12px_rgba(0,0,0,0.1)]"
                   )}
                 >
                   <div className={cn(
                     "flex h-12 w-12 items-center justify-center rounded-xl",
-                    "bg-white/20 text-foreground shadow-md",
+                    "bg-card text-foreground shadow-md",
                     "transition-transform duration-300",
                     "group-hover:scale-110"
                   )}>
@@ -106,6 +104,10 @@ export default function ContactPage() {
               );
             })}
           </div>
+          <div
+            className="dot-pattern pointer-events-none absolute -bottom-8 -right-8 h-28 w-28 opacity-50"
+            aria-hidden="true"
+          />
         </div>
       </div>
     </PageShell>
