@@ -39,7 +39,7 @@ export function HomeHero() {
 
         {/* 自述区 */}
         <div className="animate-fade-in-up animation-delay-300 flex flex-col-reverse items-center gap-10 sm:gap-12 md:flex-row md:items-start md:justify-between">
-          {/* 文字 —— TODO: 具体内容自行填充 */}
+          {/* 文字 */}
           <div className="max-w-md space-y-5 text-center md:text-left">
             <p className="leading-relaxed text-foreground/85 sm:text-lg">
               正如标题，可以叫我流月，或是 Sitrmoo。
