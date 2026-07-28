@@ -65,7 +65,7 @@ export function BlogList() {
           )}
         >
           <div className="min-w-0 flex-1">
-            <h3 className="text-base font-semibold text-foreground">
+            <h3 className="flex items-center text-base font-semibold text-foreground">
               <span className="truncate">{item.title}</span>
             </h3>
             {item.description && (
