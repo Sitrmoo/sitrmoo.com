@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="bg-background">
       <body
-        className={`min-h-screen flex flex-col font-sans antialiased ${_geist.variable} ${_geistMono.variable} ${_notoSerifSC.variable}`}
+        className={`min-h-screen flex flex-col font-serif antialiased ${_geist.variable} ${_geistMono.variable} ${_notoSerifSC.variable}`}
       >
         <GlassBackground />
         <GlassNavbar />
