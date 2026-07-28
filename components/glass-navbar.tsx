@@ -50,11 +50,13 @@ export function GlassNavbar() {
     >
       <nav
         className={cn(
-          "mx-auto max-w-5xl border px-4 py-2 transition-all duration-500 sm:px-5",
+          "mx-auto max-w-5xl border px-4 py-2 sm:px-5",
           "border-border/80 backdrop-blur-xl",
+          // 背景色、内边距走 500ms；圆角单独给更短的过渡，避免和高度展开动画打架
+          "transition-[background-color,box-shadow,padding] duration-500",
           mobileOpen
-            ? "rounded-xl bg-background/95 overflow-hidden"
-            : "rounded-full bg-background/70",
+            ? "rounded-2xl bg-background/95 overflow-hidden duration-150"
+            : "rounded-full bg-background/70 duration-150",
           scrolled
             ? "shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.08)]"
             : "shadow-none"
@@ -71,16 +73,14 @@ export function GlassNavbar() {
                 width="16"
                 height="16"
                 viewBox="0 0 100 100"
-                fill="none"
                 className="text-foreground"
                 aria-hidden="true"
               >
                 <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  fill="currentColor"
                   d="M 30.697621,64.986117 a 9.9011709,9.8627651 0 0 1 -9.901173,9.86277 9.9011709,9.8627651 0 0 1 -9.901168,-9.86277 9.9011709,9.8627651 0 0 1 9.901168,-9.862763 9.9011709,9.8627651 0 0 1 9.901173,9.862763 z M 90.104628,40.329209 a 9.9011709,9.8627651 0 0 1 -9.901157,9.862764 9.9011709,9.8627651 0 0 1 -9.901169,-9.862764 9.9011709,9.8627651 0 0 1 9.901169,-9.862771 9.9011709,9.8627651 0 0 1 9.901157,9.862771 z M 80.203244,20.603496 A 19.802341,19.725532 0 0 0 60.401087,40.329349 v 9.862673 H 50.50001 v 9.862673 h 9.901077 v 39.451207 h 9.901079 V 60.054695 h 9.901078 A 19.802341,19.725532 0 0 0 100.00592,40.329349 19.802341,19.725532 0 0 0 80.203244,20.603496 Z M 20.796263,0.87814952 V 5.8097409 h 9.90159 V 47.909706 A 19.802341,19.725532 0 0 0 20.796263,45.260432 19.802341,19.725532 0 0 0 0.99410796,64.986287 19.802341,19.725532 0 0 0 20.796263,84.711631 19.802341,19.725532 0 0 0 40.598932,64.986287 V 5.8097409 H 50.50001 V 0.87814952 Z"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
               </svg>
             </span>
