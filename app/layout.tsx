@@ -7,8 +7,11 @@ import { GlassFooter } from "@/components/glass-footer";
 
 import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const _geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 const _notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
@@ -59,8 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <body className={`min-h-screen flex flex-col font-sans antialiased ${_notoSerifSC.variable}`}>
+    <html lang="zh-CN" className="bg-background">
+      <body
+        className={`min-h-screen flex flex-col font-serif antialiased ${_geist.variable} ${_geistMono.variable} ${_notoSerifSC.variable}`}
+      >
         <GlassBackground />
         <GlassNavbar />
         <main className="relative flex-1">{children}</main>

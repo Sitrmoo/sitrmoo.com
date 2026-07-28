@@ -84,7 +84,7 @@ export function AboutFavorites() {
               delay={i * 100}
               className={item.span}
             >
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-white/15 bg-white/8 backdrop-blur-md transition-all duration-500 hover:border-white/25 hover:bg-white/12">
+              <div className="paper-card group relative h-full overflow-hidden transition-all duration-500 hover:border-foreground/25">
                 {/* Image */}
                 <div className={cn("relative w-full overflow-hidden", item.height)}>
                   <Image
