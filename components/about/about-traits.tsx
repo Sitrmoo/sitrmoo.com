@@ -40,8 +40,8 @@ export function AboutTraits() {
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {traits.map((trait, i) => (
             <ScrollReveal key={trait.label} direction="up" delay={i * 100}>
-              <div className="group rounded-2xl border border-white/15 bg-white/8 p-6 backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/12">
-                <trait.icon className="mb-4 h-5 w-5 text-primary" />
+              <div className="paper-card group p-6 transition-all duration-300 hover:border-foreground/25">
+                <trait.icon className="mb-4 h-5 w-5 text-muted-foreground transition-colors duration-300 group-hover:text-foreground" />
                 <p className="text-xs font-medium uppercase tracking-widest text-foreground/40">
                   {trait.label}
                 </p>

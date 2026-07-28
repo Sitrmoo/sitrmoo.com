@@ -18,11 +18,10 @@ export function WorkCard({ work }: { work: Work }) {
   return (
     <div
       className={cn(
-        "group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/20 p-6 transition-all duration-300",
-        "bg-white/10 backdrop-blur-lg",
+        "paper-card group relative flex flex-col justify-between overflow-hidden p-6 transition-all duration-300",
         isDimmed
           ? "opacity-50 grayscale hover:opacity-70 hover:grayscale-[50%]"
-          : "hover:bg-white/[0.15] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+          : "hover:border-foreground/25 hover:shadow-[0_1px_2px_rgba(0,0,0,0.03),0_8px_24px_-12px_rgba(0,0,0,0.1)]"
       )}
     >
       {/* Status badge */}
@@ -34,7 +33,7 @@ export function WorkCard({ work }: { work: Work }) {
 
       <div>
         {/* Tag */}
-        <span className="mb-3 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+        <span className="mb-3 inline-block rounded-full border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
           {work.tag}
         </span>
 

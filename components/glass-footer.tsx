@@ -58,21 +58,16 @@ export function GlassFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer
-      className={cn(
-        "w-full border-t border-white/20 bg-white/10 backdrop-blur-xl",
-        "shadow-[0_-8px_32px_rgba(0,0,0,0.08)]"
-      )}
-    >
+    <footer className="w-full border-t border-border bg-background/60">
       <div className="mx-auto max-w-5xl px-6 py-6">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* 左侧版权信息 */}
-          <div className="text-sm text-foreground/80">
+          <div className="text-sm text-muted-foreground">
             Copyright © {currentYear} Sitrmoo.
           </div>
 
           {/* 右侧社交媒体图标 */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -82,15 +77,15 @@ export function GlassFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-xl",
-                    "bg-white/20 text-foreground/80",
-                    "transition-all duration-200",
-                    "hover:bg-white/30 hover:text-foreground",
-                    "hover:scale-110"
+                    "flex h-9 w-9 items-center justify-center rounded-full",
+                    "border border-border bg-card text-muted-foreground",
+                    "transition-all duration-300",
+                    "hover:border-foreground/30 hover:text-foreground",
+                    "hover:-translate-y-0.5"
                   )}
                   aria-label={social.name}
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4" />
                 </a>
               );
             })}

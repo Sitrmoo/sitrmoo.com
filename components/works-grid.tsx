@@ -7,7 +7,7 @@ export function WorksGrid() {
 
   if (works.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-white/20 bg-white/10 py-24 backdrop-blur-lg">
+      <div className="paper-card flex flex-col items-center justify-center gap-4 py-24">
         <Inbox size={48} className="text-foreground/20" />
         <p className="text-lg text-foreground/40">还没有作品</p>
       </div>

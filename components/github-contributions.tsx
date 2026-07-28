@@ -21,11 +21,11 @@ interface ContributionData {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 function getLevelClass(count: number): string {
-  if (count === 0) return "bg-foreground/[0.06]";
-  if (count <= 2) return "bg-primary/25";
-  if (count <= 5) return "bg-primary/50";
-  if (count <= 8) return "bg-primary/75";
-  return "bg-primary";
+  if (count === 0) return "bg-foreground/[0.05]";
+  if (count <= 2) return "bg-foreground/20";
+  if (count <= 5) return "bg-foreground/45";
+  if (count <= 8) return "bg-foreground/70";
+  return "bg-foreground/90";
 }
 
 const MONTH_LABELS = [
@@ -51,8 +51,8 @@ export function GitHubContributions() {
   );
 
   return (
-    <div className="w-full rounded-2xl border border-white/15 bg-white/8 p-6 backdrop-blur-lg">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="paper-card w-full p-5 sm:p-6">
+      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <svg
             viewBox="0 0 16 16"
