@@ -53,7 +53,7 @@ export function GlassNavbar() {
           "mx-auto max-w-5xl border px-4 py-2 transition-all duration-500 sm:px-5",
           "border-border/80 backdrop-blur-xl",
           mobileOpen
-            ? "rounded-3xl bg-background/95"
+            ? "rounded-xl bg-background/95 overflow-hidden"
             : "rounded-full bg-background/70",
           scrolled
             ? "shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.08)]"
