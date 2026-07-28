@@ -104,10 +104,6 @@ export default function ContactPage() {
               );
             })}
           </div>
-          <div
-            className="dot-pattern pointer-events-none absolute -bottom-8 -right-8 h-28 w-28 opacity-50"
-            aria-hidden="true"
-          />
         </div>
       </div>
     </PageShell>

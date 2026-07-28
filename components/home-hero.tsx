@@ -16,11 +16,9 @@ export function HomeHero() {
             aria-hidden="true"
           />
 
-          {/* TODO: 主标题 —— 内容自行填充 */}
           <h1 className="font-serif text-balance text-6xl font-black tracking-tighter text-foreground sm:text-8xl lg:text-9xl">
             流月
           </h1>
-          {/* TODO: 副标题 —— 内容自行填充 */}
           <p className="mt-5 font-serif text-pretty text-base tracking-[0.35em] text-muted-foreground sm:text-lg">
             静水映长天
           </p>
