@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: "Cyrus Luo",
     template: "%s - Cyrus",
   },
-  description: "流月 - 来自重庆的高中生，Vibe Cofing 爱好者。",
+  description: "流月 - 来自重庆的高中生，Vibe Coding 爱好者。",
   keywords: ["流月", "Sitrmoo", "个人网站", "重庆"],
   authors: [{ name: "Cyrus Luo" }],
   openGraph: {
