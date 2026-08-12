@@ -20,23 +20,23 @@ const _notoSerifSC = Noto_Serif_SC({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sitrmoo",
-    template: "%s - Sitrmoo",
+    default: "Cyrus Luo",
+    template: "%s - Cyrus",
   },
-  description: "流月 - 来自重庆的高中生，喜欢宁静。在无人一隅，静候时间流淌。",
+  description: "流月 - 来自重庆的高中生，Vibe Coding 爱好者。",
   keywords: ["流月", "Sitrmoo", "个人网站", "重庆"],
-  authors: [{ name: "流月" }],
+  authors: [{ name: "Cyrus Luo" }],
   openGraph: {
-    title: "Sitrmoo - 流月",
-    description: "我是流月，来自重庆。一名喜欢宁静的高中生，在无人一隅，静候时间流淌。",
+    title: "流月",
+    description: "我是流月，来自重庆。一名喜欢宁静的高中生，喜欢阅读，不时写作。",
     url: "https://sitrmoo.com",
-    siteName: "Sitrmoo",
+    siteName: "Cyrus Luo",
     images: [
       {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Sitrmoo",
+        alt: "Cyrus's Profile",
       },
     ],
     locale: "zh_CN",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sitrmoo',
-    description: '流月是个人网站',
+    description: '流月的个人网站',
     images: ['/og.jpg'],
     creator: '@sitrmoo',
   },
@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="bg-background">
       <body
-        className={`min-h-screen flex flex-col font-sans antialiased ${_geist.variable} ${_geistMono.variable} ${_notoSerifSC.variable}`}
+        className={`min-h-screen flex flex-col font-serif antialiased ${_geist.variable} ${_geistMono.variable} ${_notoSerifSC.variable}`}
       >
         <GlassBackground />
         <GlassNavbar />
