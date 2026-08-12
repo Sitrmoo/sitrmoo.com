@@ -53,7 +53,7 @@ export default function ContactPage() {
           谢谢你愿意花时间走进这个小小的数字角落，无论是想聊聊学习生活、分享有趣的想法，还是有什么想一起尝试的事，我都很乐意倾听。
         </p>
 
-        <div className="relative max-w-2xl">
+        <div>
           <p className="mb-6 font-medium text-foreground">你可以通过以下方式联系我：</p>
           <div className="grid gap-4 sm:grid-cols-2">
             {contactMethods.map((contact) => {
@@ -80,7 +80,7 @@ export default function ContactPage() {
                     <Icon className="h-6 w-6" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-foreground/70">
+                    <p className="text-sm font-medium text-muted-foreground">
                       {contact.name}
                     </p>
                     <p className="truncate font-semibold text-foreground">
@@ -88,7 +88,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                   <svg
-                    className="h-5 w-5 text-foreground/40 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-foreground/60"
+                    className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-foreground"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
