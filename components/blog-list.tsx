@@ -1,7 +1,7 @@
 "use client";
 
 import useSWR from "swr";
-import { ExternalLink, Rss, Loader2 } from "lucide-react";
+import { Rss, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface RssItem {
@@ -65,9 +65,8 @@ export function BlogList() {
           )}
         >
           <div className="min-w-0 flex-1">
-            <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
+            <h3 className="flex items-center text-base font-semibold text-foreground">
               <span className="truncate">{item.title}</span>
-              <ExternalLink className="h-3.5 w-3.5 shrink-0 text-foreground/30 transition-colors group-hover:text-foreground/60" />
             </h3>
             {item.description && (
               <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-foreground/50">
