@@ -53,7 +53,7 @@ export default function ContactPage() {
           谢谢你愿意花时间走进这个小小的数字角落，无论是想聊聊学习生活、分享有趣的想法，还是有什么想一起尝试的事，我都很乐意倾听。
         </p>
 
-        <div className="relative max-w-2xl">
+        <div>
           <p className="mb-6 font-medium text-foreground">你可以通过以下方式联系我：</p>
           <div className="grid gap-4 sm:grid-cols-2">
             {contactMethods.map((contact) => {
