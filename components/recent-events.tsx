@@ -15,14 +15,41 @@ interface EventsData {
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
+const TIME_ZONE = "Asia/Shanghai";
+
+function parseTime(value: string): Date {
+  return new Date(
+    value.includes("Z") || value.includes("+")
+      ? value
+      : `${value.replace(" ", "T")}Z`
+  );
+}
+
 function formatTime(value: string): string {
-  const date = new Date(value.replace(" ", "T"));
+  const date = parseTime(value);
   if (Number.isNaN(date.getTime())) return value;
+
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+
   const now = new Date();
-  const sameYear = date.getFullYear() === now.getFullYear();
-  const pad = (n: number) => String(n).padStart(2, "0");
-  const base = `${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
-  return sameYear ? base : `${date.getFullYear()}-${base}`;
+  const sameYear =
+    Number(get("year")) ===
+    Number(
+      new Intl.DateTimeFormat("en", { timeZone: TIME_ZONE, year: "numeric" })
+        .formatToParts(now)
+        .find((p) => p.type === "year")?.value
+    );
+  const base = `${get("month")}-${get("day")} ${get("hour")}:${get("minute")}`;
+  return sameYear ? base : `${get("year")}-${base}`;
 }
 
 export function RecentEvents() {
@@ -35,8 +62,8 @@ export function RecentEvents() {
   const events = [...(data?.events ?? [])]
     .sort(
       (a, b) =>
-        new Date(b.created_at.replace(" ", "T")).getTime() -
-        new Date(a.created_at.replace(" ", "T")).getTime()
+        new Date(parseTime(b.created_at)).getTime() -
+        new Date(parseTime(a.created_at)).getTime()
     )
     .slice(0, 5);
 
@@ -61,7 +88,7 @@ export function RecentEvents() {
                 {event.content}
               </p>
               <time
-                dateTime={event.created_at}
+                dateTime={parseTime(event.created_at).toISOString()}
                 className="shrink-0 font-mono text-xs text-foreground/40"
               >
                 {formatTime(event.created_at)}

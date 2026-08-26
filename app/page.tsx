@@ -27,7 +27,7 @@ export default function HomePage() {
                 <span className="rounded border border-border px-1.5 py-0.5 font-mono text-[10px]">
                   03
                 </span>
-                今日
+                近日
               </span>
               <span className="dotted-leader h-0.5 flex-1" aria-hidden="true" />
             </div>
